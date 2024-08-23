@@ -3,7 +3,7 @@
 
 > 東京都市大学のデジタルコンテンツ研究会のメンバーを中心に構成された、有志によるアニメーション制作集団です。このリポジトリはそのWebsiteです。Astroで作られました。
 
-![都市大アニメーション](/ogp.jpg)
+![tcuA_ogp](https://github.com/user-attachments/assets/7f55e362-53ee-4c51-b6aa-3792af4bcba2)
 
 ## Features
 
@@ -13,6 +13,8 @@
 - **Responsive**
 - **Animated by GSAP**
 - **Blog is written with MDX and Markdown**
+
+<img width="306" alt="screenshot" src="https://github.com/user-attachments/assets/9b9a6336-bf5c-426e-b3e6-b6a5e86b2fa7">
 
 ## Getting Started
 
@@ -30,4 +32,4 @@ npm i
 npm run dev
 ```
 
-![screenshot](/screenshot.webp)
+[tcuA-video.webm](https://github.com/user-attachments/assets/eee253fd-702b-4656-8f4f-52701181d24f)
