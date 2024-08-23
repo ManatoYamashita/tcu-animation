@@ -3,7 +3,7 @@ title: 'キャラクタデザインを行いました！！'
 description: '脚本の完成しなわち登場人物の確定です。キャラクタの原案を決めて、キャラクタデザインを行います！'
 pubDate: 'July 23 2024'
 tags: ['アニメ制作', 'キャラクタデザイン', 'キャラクタ原案', '7号館', '東京都市大学']
-heroImage: '/blog-assets/blog-placeholder-2.jpg'
+heroImage: '/blog-placeholder-2.jpg'
 ---
 
 ## 1. 担当の割り振り
@@ -19,5 +19,5 @@ heroImage: '/blog-assets/blog-placeholder-2.jpg'
 
 
 <a href="https://tcu-yamamana.notion.site/5a4c680ae5d64d4992b3478c2e368b7b?pvs=4">
-    <img width="400" src="/blog-assets/images/blog-placeholder-4.jpg" alt="執筆中" />
+    <img width="400" src="/blog-placeholder-4.jpg" alt="執筆中" />
 </a>
