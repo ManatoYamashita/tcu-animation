@@ -9,10 +9,10 @@ let recentPosts = posts.slice(0, numberOfPostsToDisplay);
 ---
 
 <div class="px-4 md:px-16 flex flex-col gap-4 mt-16">
-  <h3 class="font-medium text-base">Recent Publications</h3>
+  <h2 class="recent-pub text-2xl font-bold mb-5">Recent Publications</h2>
   {
     recentPosts.map((post) => (
-      <div class="flex gap-2 justify-between border-b pb-4">
+      <div class="posts flex gap-2 justify-between border-b pb-4">
         <div class="flex flex-col gap-4">
           {/* <p>{post.data.pubDate}</p> */}
           <FormattedDate date={post.data.pubDate} />
@@ -40,3 +40,32 @@ let recentPosts = posts.slice(0, numberOfPostsToDisplay);
     href="/blog">View more</a
   >
 </div>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('.recent-pub', {
+    scrollTrigger: {
+      trigger: '.recent-pub',
+      start: 'top 80%',
+    },
+    opacity: 0,
+    x: -100,
+    duration: 1,
+    ease: 'power2.out',
+  });
+
+  gsap.from('.posts', {
+    scrollTrigger: {
+      trigger: '.posts',
+      start: 'top 80%',
+    },
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    stagger: 0.5,
+    ease: 'power2.out',
+  });
+</script>

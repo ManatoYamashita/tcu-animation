@@ -11,35 +11,118 @@ import RecentPublications from "../components/RecentPublications.astro";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class="w-full max-w-screen-md mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300" >
+  <body class="w-full mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300" >
     <Header />
-    <main class="flex flex-col justify-center">
-      <div class="px-4 md:px-16 flex flex-col gap-4 md:my-10">
-        <h1 class="text-2xl md:text-5xl w-full">🧑‍🚀 Hello, Astronaut!</h1>
-        <p class="w-full text-justify text-base md:text-lg">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi officia
-          neque eligendi nulla impedit error, consequuntur aspernatur autem id
-          pariatur tenetur quod.
-        </p>
-      </div>
+
+    <main class="lg:mt-24 mt-16 flex flex-col justify-center">
       <div class="w-full flex flex-col items-center gap-2.5 px-4 lg:px-0 mt-6">
-        <img
-          src="https://images.unsplash.com/photo-1635627408144-6bf36d28fb98"
-          alt="Astronaut"
-        />
-        <p class="italic text-xs text-gray-600 dark:text-neutral-400">
-          Foto de <a
-            href="https://unsplash.com/es/@niklasjonasson?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
-            >Niklas Jonasson</a
-          > en <a
-            href="https://unsplash.com/es/fotos/un-cuerpo-de-agua-con-arboles-en-el-fondo-j_WW0u2yYAE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
-            >Unsplash</a
-          >
-        </p>
+        <video autoplay loop muted playsinline poster="ogp.jpg" style="width: 100%; height: auto;" class="hero-video">
+          <source src="tcuA-video.webp" type="video/webp">
+          <source src="tcuA-video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
-	  <RecentPublications />
-	      </main>
+      <div class="px-4 md:px-16 flex flex-col gap-4 md:my-10">
+        <div class="heading">
+          <h1 class="title text-2xl md:text-5xl w-full font-noto font-black">夢に翼を！アニメーションで命を吹き込む</h1>
+        </div>
+        <div class="wrapper">
+          <p class="paragraph w-full text-justify text-base md:text-lg">
+            東京都市大学アニメーションスタジオ（都市大アニメーション）とは都市大生の有志で構成されるアニメーション制作集団です。
+            アニメ化で命を吹き込むことによって、夢に翼を授けます。
+          </p>
+        </div>
+      </div>
+	    <RecentPublications />
+	  </main>
+
     <Footer />
   </body>
 </html>
 
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('.hero-video', {
+    duration: 1,
+    scale: 5,
+    ease: 'power2.out',
+    onComplete: function() {
+      gsap.to('.hero-video', {
+        scale: 1,
+      });
+    }
+  });
+
+  const headingTl = gsap.timeline({
+    repeat: -1,
+    repeatDelay: 2,
+    yoyo: true
+  });
+
+headingTl
+  .from(".heading", {
+    duration: 1,
+    scaleX: 0,
+    transformOrigin: "left",
+    ease: "expo.inOut"
+  })
+  .from(
+    ".heading h1",
+    {
+      y: "100%",
+      duration: 0.8,
+      ease: "expo.out"
+    },
+    "-=0.2"
+  )
+  .from(
+    ".heading",
+    {
+      css: { borderBottom: "4px solid var(--color-primary)" },
+      duration: 2,
+      transformOrigin: "right",
+      ease: "none"
+    },
+    "-=1"
+  )
+  .from(
+    ".heading h1",
+    {
+      duration: 2,
+      transformOrigin: "right",
+      ease: "none",
+      css: { color: "black" }
+    },
+    "-=2"
+  );
+
+  gsap.fromTo(
+    ".paragraph",  // 対象となるクラス
+    { y: 100 }, // 初期状態: 不透明度 0、少し下に位置
+    {
+      y: 0,
+      duration: 1, // アニメーションの長さ
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".paragraph", // トリガーとなる要素
+        start: "top 80%", // アニメーションが始まるスクロール位置
+        toggleActions: "play none none none", // アニメーションの開始後の動作
+      }
+    }
+  );
+</script>
+
+<style>
+
+.heading {
+    overflow: hidden;
+    border-bottom: 2px solid black;
+    margin-bottom: 1rem;
+}
+.wrapper {
+    overflow: hidden;
+}
+</style>

@@ -13,16 +13,16 @@ const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const postByYear: {
-  [year: number]: Post[];
+const postByMonth: {
+  [Month: number]: Post[];
 } = {}
 
 posts.forEach((post) => {
-  const year = post.data.pubDate.getFullYear()
-  if (!postByYear[year]) {
-    postByYear[year] = []
+  const month = post.data.pubDate.getMonth()
+  if (!postByMonth[month]) {
+    postByMonth[month] = []
   }
-  postByYear[year].push(post)
+  postByMonth[month].push(post)
 })
 ---
 
@@ -31,21 +31,21 @@ posts.forEach((post) => {
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class="w-full  mx-auto my-4 max-w-screen-md dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300">
+  <body class="w-full mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300">
     <Header />
     <main
-      class="w-full max-w-screen-md mx-auto my-4 px-4 flex flex-col gap-4 justify-center"
+      class="lg:mt-28 mt-20 w-full mx-auto px-4 flex flex-col gap-4 justify-center"
     >
       {
-        Object.keys(postByYear).sort(
+        Object.keys(postByMonth).sort(
           (a, b) => parseInt(b) - parseInt(a)
-        ).map((year) => (
+        ).map((month) => (
           <div class="flex flex-col">
-            <h2 class=" text-black dark:text-white font-bold mb-8">{year}</h2>
+            <h2 class="text-black dark:text-white font-bold mb-8">{month}月</h2>
             <div class="flex flex-col gap-4">
               
             {
-              postByYear[parseInt(year)].map((post: Post) => (
+              postByMonth[parseInt(month)].map((post: Post) => (
               <div class="flex gap-2 justify-between border-b pb-4">
             <div class="flex flex-col gap-4">
               <FormattedDate date={post.data.pubDate} />

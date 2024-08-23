@@ -5,21 +5,22 @@ const today = new Date();
 ---
 
 <footer class="mt-20 md:mt-36 mx-4">
-  <div class="flex gap-4 border-b pb-8 mb-5 flex-col lg:flex-row  ">
+  <div class="flex gap-4 border-b pb-8 mb-5 flex-col lg:flex-row">
     <div class="w-full lg:w-2/3">
-      <h1 class="text-lg font-bold">Void Theme</h1>
-      <p class="text-sm">
-        Void is a minimalistic theme for Astro. It is designed to be simple and
-        easy to use.
+      <h2 class="footer-title text-lg font-bold">都市大生スタッフ募集中！</h2>
+      <p class="footer-paragraph text-sm">
+        アニメーション制作に興味がある東京都市大学の学生を募集しています。詳しくはお問い合わせください。<br>
+        経験は不問です。一緒に楽しくアニメーションを作りましょう！<br>
+        <small>2024年12月まで募集しています。</small>
       </p>
 	  <div class="flex gap-3 mt-3">
-		<a href="https://linkedin.com/your-linkedin" target="_blank">
-			<Icon name="radix-icons:linkedin-logo" class="w-5 h-5 text-gray-600 hover:text-gray-500 dark:text-neutral-200"/>
+		<a href="mailto:g2172117@tcu.ac.jp" target="_blank">
+			<Icon name="material-symbols:mail" class="w-5 h-5 text-gray-600 hover:text-gray-500 dark:text-neutral-200"/>
 		</a>
-		<a href="https://www.github.com/eAntillon" target="_blank">
+		<a href="https://www.github.com/ManatoYamashita" target="_blank">
 			<Icon name="radix-icons:github-logo" class="w-5 h-5 text-gray-600 hover:text-gray-500 dark:text-neutral-200"/>
 		</a>
-		<a href="https://www.instagram.com/" target="_blank">
+		<a href="https://www.instagram.com/manapuraza_com/" target="_blank">
 			<Icon name="radix-icons:instagram-logo" class="w-5 h-5 text-gray-600 hover:text-gray-500 dark:text-neutral-200"/>
 		</a>
 		
@@ -27,24 +28,69 @@ const today = new Date();
     </div>
     <div class="flex lg:ml-auto gap-10 mt-1">
       <div>
-        <h1 class="font-bold mb-3 text-base">
+        <h2 class="footer-title font-bold mb-3 text-base">
           Pages
-        </h1>
+        </h2>
         <ul class="flex flex-col gap-2 text-sm">
           <li>
-			  <a href="/" class="flex items-center gap-1 hover:no-underline hover:text-gray-600">Blog <Icon name="radix-icons:arrow-top-right" class="w-3 h-3" /></a>
-			</li>
-			<li>
-				<a href="/" class="flex items-center gap-1 hover:no-underline hover:text-gray-600">Tags <Icon name="radix-icons:arrow-top-right" class="w-3 h-3" /></a>
-			</li>
-			<li>
-				<a href="/" class="flex items-center gap-1 hover:no-underline hover:text-gray-600">About <Icon name="radix-icons:arrow-top-right" class="w-3 h-3" /></a>
+            <a href="/blog" class="flex items-center gap-1 hover:no-underline hover:text-gray-600">Blog <Icon name="radix-icons:arrow-top-right" class="w-3 h-3" /></a>
+          </li>
+          <li>
+            <a href="/tags" class="flex items-center gap-1 hover:no-underline hover:text-gray-600">Tags <Icon name="radix-icons:arrow-top-right" class="w-3 h-3" /></a>
+          </li>
+			    <li>
+				    <a href="/about" class="flex items-center gap-1 hover:no-underline hover:text-gray-600">About <Icon name="radix-icons:arrow-top-right" class="w-3 h-3" /></a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-title font-bold mb-3 text-base">
+          Stakeholders
+        </h2>
+        <ul class="flex flex-col gap-2 text-sm">
+          <li>
+            <a href="https://www.tcu.ac.jp/" class="flex items-center gap-1 hover:no-underline hover:text-gray-600">東京都市大学 <Icon name="radix-icons:arrow-top-right" class="w-3 h-3" /></a>
+          </li>
+          <li>
+            <a href="https://www.city.setagaya.lg.jp/" class="flex items-center gap-1 hover:no-underline hover:text-gray-600">東京都世田谷区 <Icon name="radix-icons:arrow-top-right" class="w-3 h-3" /></a>
+          </li>
+			    <li>
+				    <a href="https://www.81produce.co.jp/" class="flex items-center gap-1 hover:no-underline hover:text-gray-600">81プロデュース <Icon name="radix-icons:arrow-top-right" class="w-3 h-3" /></a>
           </li>
         </ul>
       </div>
     </div>
   </div>
   <p class="text-sm font-medium mb-10">
-    &copy; {today.getFullYear()} Your name here. All rights reserved.
+    &copy; 2024-{today.getFullYear()} <a href="https://manapuraza.com" target="_blank"><strong>都市大アニメーション / ManatoYamashita</strong></a>&nbsp; All rights reserved.
   </p>
 </footer>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('.footer-title', {
+    scrollTrigger: {
+      trigger: 'footer',
+      start: 'top 80%',
+    },
+    opacity: 0,
+    x: -100,
+    duration: 1,
+    ease: 'power2.out',
+  });
+
+  gsap.from('.footer-paragraph', {
+    scrollTrigger: {
+      trigger: '.footer-paragraph',
+      start: 'top 100%',
+    },
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    ease: 'power2.out',
+  });
+</script>

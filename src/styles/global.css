@@ -1,5 +1,10 @@
+/* カラーテーマを定義 */
+:root {
+    --color-primary: #E36464;
+}
+
 html {
-    font-family: 'Reddit Mono', monospace;
+    font-family: 'Noto Sans JP', 'Reddit Mono', monospace;
     width: 100%;
 }
 
@@ -13,7 +18,27 @@ a:hover {
 }
 
 img {
-    @apply rounded-lg;
+    /* @apply rounded-lg; */
     max-width: 100%;
     height: auto;
+}
+
+h1 {
+    color: var(--color-primary);
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #767676;
+    margin: 2rem 0;
+    animation: hrIn 2s forwards;
+}
+
+@keyframes hrIn {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
 }
