@@ -1,9 +1,9 @@
 ---
-title: 'キャラクタデザイン！！'
-description: 'キャラクタデザインを行います！'
+title: 'キャラクタデザインを行いました！！'
+description: '脚本の完成しなわち登場人物の確定です。キャラクタの原案を決めて、キャラクタデザインを行います！'
 pubDate: 'July 23 2024'
 tags: ['アニメ制作', 'キャラクタデザイン', 'キャラクタ原案', '7号館', '東京都市大学']
-heroImage: '/blog-assets/meeting-for-script.webp'
+heroImage: '/blog-assets/blog-placeholder-2.jpg'
 ---
 
 ## 1. 担当の割り振り
@@ -13,27 +13,11 @@ heroImage: '/blog-assets/meeting-for-script.webp'
 `2024年7月4日`に、担当者が世田谷キャンパス多めな上に、個人的にも世田谷キャンパスの方がテンションが上がるので、世田谷キャンパスに集まりました！
 
 
-## 2. 1次提出
+## 2. この記事は執筆中です。
 
-<img width="400" src="/blog-assets/images/script-souan.webp" alt="脚本イメージボツ案" />
+この記事は執筆中です。
 
-4月23日、私が個人的に縁があったので、武蔵工業会館を使わせていただきました。
-みんなが考えてきた脚本を世田谷区の方々に見せましたが、結果としてはまだ向こうの意にそぐうものは見せられず、もっとヒアリングを行いました。
-
-それらのフィードバックを終えて、もう一度脚本を練り直すことに、
-脚本担当の`むぎゅ`氏の案をベースにもう一度脚本を練り直す方針にしました。
-理由としては、彼の案は、`指導員から見たら子供は突拍子もない行動をする`という点がうまく書けていて良かったからです。
-
-<img width="500" src="/blog-assets/images/building7.webp" alt="脚本イメージボツ案" />
-
-こうして書かれた仮脚本を脚本担当の私と`あや`さんと一緒にブラッシュアップして、完成しました。
-
-当初の予定では4月中に脚本を完成させ、6月で作品を完成させると思っていましたが、全く外れたスケジュールでした。
-実際に作ってみたら、いかに時間がかかるか、それを知りましたね。
-
-**↓完成した脚本は以下**
 
 <a href="https://tcu-yamamana.notion.site/5a4c680ae5d64d4992b3478c2e368b7b?pvs=4">
-    <img width="400" src="/blog-assets/images/script-complete.webp" alt="完成した脚本" />
+    <img width="400" src="/blog-assets/images/blog-placeholder-4.jpg" alt="執筆中" />
 </a>
-
