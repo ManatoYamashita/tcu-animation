@@ -1,27 +1,33 @@
 
-# Void-Astro
+# TCU Animation
 
-> 🧑‍🚀 Void-Astro is a minimalistic blog starter template designed for developers and writers who appreciate simplicity and elegance. Built with [Astro](https://astro.build/), this template leverages the power of [TailwindCSS](https://tailwindcss.com/) for styling and comes with a built-in dark mode, making it aesthetically pleasing and easy on the eyes.
+> 東京都市大学のデジタルコンテンツ研究会のメンバーを中心に構成された、有志によるアニメーション制作集団です。このリポジトリはそのWebsiteです。Astroで作られました。
+
+![都市大アニメーション](/ogp.jpg)
 
 ## Features
 
-- **Minimalistic Design.**
+- **BlogPosts with Astro**
 - **Dark Mode**
-- **Build with TailwindCSS**: 
+- **Build with TailwindCSS**
 - **Responsive**
-
+- **Animated by GSAP**
+- **Blog is written with MDX and Markdown**
 
 ## Getting Started
 
 1. Clone the repository:
+
 ```bash
 # Clone the repository
 git clone https://github.com/eAntillon/void-astro.git
 cd void-astro
+
 #  Install dependencies
 npm i
+
 #  Start the development server
 npm run dev
 ```
-![frame](https://github.com/user-attachments/assets/0ab4b7b7-6b20-4ae2-8266-aa029a503cf1)
 
+![screenshot](/screenshot.webp)
