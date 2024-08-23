@@ -3,7 +3,7 @@ title: 'キャラクタデザインを行いました！！'
 description: '脚本の完成しなわち登場人物の確定です。キャラクタの原案を決めて、キャラクタデザインを行います！'
 pubDate: 'July 23 2024'
 tags: ['アニメ制作', 'キャラクタデザイン', 'キャラクタ原案', '7号館', '東京都市大学']
-heroImage: '/blog-placeholder-2.jpg'
+heroImage: '/blog-assets/chara-design-team.webp'
 ---
 
 ## 1. 担当の割り振り
