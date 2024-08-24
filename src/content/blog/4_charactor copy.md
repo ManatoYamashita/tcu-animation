@@ -3,7 +3,7 @@ title: '缶詰さくが合宿に行きましょう！！'
 description: '脚本の完成しなわち登場人物の確定です。キャラクタの原案を決めて、キャラクタデザインを行います！'
 pubDate: 'July 23 2024'
 tags: ['アニメ制作', 'キャラクタデザイン', 'キャラクタ原案', '7号館', '東京都市大学']
-heroImage: '/blog-assets/chara-desgin-team.webp'
+heroImage: '/ogp.jpg'
 ---
 
 ## 合宿やりたい
@@ -27,4 +27,4 @@ heroImage: '/blog-assets/chara-desgin-team.webp'
     <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/images/charades-role.webp" alt="キャラデザ担当表" />
 </div> -->
 
-<img class="blog-image" src="/logo.webp" alt="placeholder" />
+<img class="blog-image" src="/blog-assets/blog-placeholder-2.jpg" alt="placeholder" />
