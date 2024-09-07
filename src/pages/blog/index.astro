@@ -18,7 +18,8 @@ const postByMonth: {
 } = {}
 
 posts.forEach((post) => {
-  const month = post.data.pubDate.getMonth()
+  let month = post.data.pubDate.getMonth()
+  month += 1
   if (!postByMonth[month]) {
     postByMonth[month] = []
   }
