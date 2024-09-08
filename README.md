@@ -13,6 +13,7 @@
 - **Responsive**
 - **Animated by GSAP**
 - **Blog is written with MDX and Markdown**
+- **CI/CD(Github Actions)**
 
 <img width="306" alt="screenshot" src="https://github.com/user-attachments/assets/9b9a6336-bf5c-426e-b3e6-b6a5e86b2fa7">
 
