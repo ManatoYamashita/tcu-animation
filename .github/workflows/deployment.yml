@@ -31,4 +31,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          git-ftp-args: --remote-root /tcu-animation/
+          git-ftp-args: --remote-root /tcu-animation/ --syncroot ./dist/ --auto-init --no-delete
