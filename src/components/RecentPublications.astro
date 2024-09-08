@@ -4,14 +4,21 @@ import FormattedDate from "./FormattedDate.astro";
 import TagLink from "./TagLink.astro";
 
 const posts = await getCollection("blog");
+
+// 公開日（pubDate）の降順（新しい順）にソート
+let sortedPosts = posts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// numberOfPostsToDisplay に従って最新の投稿を抽出
 let numberOfPostsToDisplay = 4;
-let recentPosts = posts.slice(0, numberOfPostsToDisplay);
+let recentPosts = sortedPosts.slice(0, numberOfPostsToDisplay);
 ---
 
-<div class="px-4 md:px-16 flex flex-col gap-4 mt-16">
+<div class="px-4 md:px-20 flex flex-col gap-4 mt-16">
   <h2 class="recent-pub text-2xl font-bold mb-5">Recent Publications</h2>
   {
-    recentPosts.reverse().map((post) => (
+    recentPosts.map((post) => (
       <div class="posts flex gap-2 justify-between border-b pb-4">
         <div class="flex flex-col gap-4">
           {/* <p>{post.data.pubDate}</p> */}
@@ -26,11 +33,13 @@ let recentPosts = posts.slice(0, numberOfPostsToDisplay);
           </div>
         </div>
         <a href={`/blog/${post.slug}`}>
+        <div class="w-40 h-24 border border-gray-200">
           <img
             src={post.data.heroImage}
-            alt=""
-            class="w-40 h-24 bg-contain border border-gray-200"
+            alt={post.data.title}
+            class="w-full h-full object-cover"
           />
+        </div>
         </a>
       </div>
     ))

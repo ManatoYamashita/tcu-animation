@@ -1,7 +1,7 @@
 ---
 title: '絵コンテを作ろう！'
 description: 'アニメ制作における重要な工程の一つに絵コンテというものがあります。絵コンテは監督や映像を作る人がアニメータにどんな絵を描いて欲しいか、芝居をして欲しいか伝える役目があります。'
-pubDate: 'Oct 7 2024'
+pubDate: 'Sep 7 2024'
 heroImage: '/blog-assets/blog-storyboard-thumbnail.webp'
 tags: ['制作', 'blog', '絵コンテ']
 ---
