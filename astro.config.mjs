@@ -7,7 +7,9 @@ import tailwind from '@astrojs/tailwind'
 // https://astro.build/config
 export default defineConfig({
     site: 'https://tcu-animation.manapuraza.com',
-    integrations: [mdx(), sitemap(), tailwind()],
+    integrations: [mdx(), sitemap({
+      filter: (page) => page.path !== '/404',
+    }), tailwind()],
     markdown: {
         shikiConfig: {
           // Choose from Shiki's built-in themes (or add your own)
