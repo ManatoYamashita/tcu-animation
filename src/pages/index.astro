@@ -11,14 +11,16 @@ import RecentPublications from "../components/RecentPublications.astro";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preload" href="tcu-icon.webp" as="image">
+    <link rel="preload" href="tcuA-video.webm" as="video">
   </head>
   <body class="w-full mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300" >
     <Header />
 
     <main class="lg:mt-24 mt-16 flex flex-col justify-center">
       <div class="w-full flex flex-col items-center gap-2.5 px-4 lg:px-0 mt-6">
-        <video autoplay loop muted playsinline poster="ogp.jpg" style="width: 100%; height: auto;" class="hero-video">
-          <source src="tcuA-video.webp" type="video/webp">
+        <video autoplay loop muted playsinline poster="tcu-icoon.webp" style="width: 100%; height: auto;" class="hero-video" aria-label="都市大アニメーションポスタービデオ">
+          <source src="tcuA-video.webm" type="video/webm">
           <source src="tcuA-video.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
