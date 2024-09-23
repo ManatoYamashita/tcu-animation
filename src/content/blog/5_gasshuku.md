@@ -2,7 +2,7 @@
 title: '江ノ島で缶詰作画合宿！！!'
 description: '作画集中作業を目的に、江ノ島で家を借りて、合宿しました！'
 pubDate: 'Sep 20 2024'
-tags: ['アニメ制作', '作画', '江ノ島', '合宿', 'blog']
+tags: ['アニメ制作', '作画', '江ノ島', '合宿', 'blog', 'event']
 heroImage: '/blog-assets/enoshima.webp'
 ---
 
