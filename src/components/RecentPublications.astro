@@ -26,8 +26,8 @@ let recentPosts = sortedPosts.slice(0, numberOfPostsToDisplay);
           <a class="font-bold text-lg" href={`/blog/${post.slug}`}>
             {post.data.title}
           </a>
-          <div class="flex gap-2">
-              {post.data.tags?.map((i) => {
+          <div class="flex gap-2 flex flex-col sm:flex-row">
+              {post.data.tags?.map((i: string) => {
                 return <TagLink tag={i} />;
               })}
           </div>

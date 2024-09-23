@@ -97,13 +97,12 @@ const props = Astro.props
   }
 </style>
 
-<button class={"switch-theme-button pushable " + props.class }>
+<button type="button" class={"switch-theme-button pushable " + props.class } aria-label="テーマを切り替える">
   <span class="shadow"></span>
   <span class="edge"></span>
   <span class="front">
-    <Icon name="radix-icons:sun" class="w-4 h-4 flex dark:hidden" />
-    <Icon name="radix-icons:moon" class="w-4 h-4 dark:flex hidden" />
-
+    <Icon name="radix-icons:sun" class="w-4 h-4 flex dark:hidden" aria-hidden="true" />
+    <Icon name="radix-icons:moon" class="w-4 h-4 dark:flex hidden" aria-hidden="true" />
   </span>
 </button>
 

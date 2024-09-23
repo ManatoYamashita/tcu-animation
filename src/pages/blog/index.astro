@@ -48,29 +48,30 @@ posts.forEach((post) => {
             {
               postByMonth[parseInt(month)].map((post: Post) => (
               <div class="flex gap-2 justify-between border-b pb-4">
-            <div class="flex flex-col gap-4">
-              <FormattedDate date={post.data.pubDate} />
-              <a class="font-bold text-lg" href={`/blog/${post.slug}`}>
-                {post.data.title}
-              </a>
-              <div class="flex gap-2">
-                {post.data.tags?.map((i: string) => {
-                  return <TagLink tag={i} />;
-                })}
+                <div class="flex flex-col gap-4">
+                  <FormattedDate date={post.data.pubDate} />
+                  <a class="font-bold text-lg" href={`/blog/${post.slug}`}>
+                    {post.data.title}
+                  </a>
+                  <div class="flex gap-2 flex flex-col sm:flex-row">
+                    {post.data.tags?.map((i: string) => {
+                      return <TagLink tag={i} />;
+                    })}
+                  </div>
+                </div>
+                <a href={`/blog/${post.slug}`}>
+                  <div class="w-40 h-24 border border-gray-200">
+                    <img
+                      src={post.data.heroImage}
+                      alt={post.data.title}
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                </a>
               </div>
+                ))
+              }
             </div>
-            <a href={`/blog/${post.slug}`}>
-              <img
-                src={post.data.heroImage}
-                alt="都市大アニメーション ブログ"
-                class="w-40 h-24 bg-contain border border-gray-200"
-              />
-            </a>
-          </div>
-              ))
-            }
-            </div>
-
           </div>
         ))
       }

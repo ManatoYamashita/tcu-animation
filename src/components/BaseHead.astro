@@ -11,7 +11,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
 
-const { title, description, image = '/tcuA-ogp.jpg' } = Astro.props;
+const { title, description, image = '/tcuA.webp' } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -22,7 +22,7 @@ const { title, description, image = '/tcuA-ogp.jpg' } = Astro.props;
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+JP:wght@100..900&family=Reddit+Mono:wght@200..900&family=Sawarabi+Mincho&display=swap" rel="stylesheet"> 
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap&family=Noto+Sans+JP:wght@100..900&display=swap&family=Reddit+Mono:wght@200..900&display=swap&family=Sawarabi+Mincho&display=swap" rel="stylesheet" media="print" /> 
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
