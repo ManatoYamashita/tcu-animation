@@ -23,7 +23,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/eAntillon/void-astro.git
+git clone https://github.com/ManatoYamashita/tcu-animation.git
 cd void-astro
 
 #  Install dependencies
