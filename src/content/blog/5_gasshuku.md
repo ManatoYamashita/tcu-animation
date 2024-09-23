@@ -25,6 +25,7 @@ heroImage: '/blog-assets/enoshima.webp'
 </div>
 
 個人で集中して取り組んだり、時には山下マナト(監督)と話し合いをしながら調整したりと各々作業しました。
+絵コンテや脚本についてわからないことや、アニメの書き方、ソフトの使い方などその場で話すこともできたし、作画担当の人と一緒に考えながらできたのでとても効率的でやりやすかったです。
 
 <img class="blog-image" src="/blog-assets/images/enoshima-gasshuku_2.webp" alt="山下マナトとむぎゅ" />
 
