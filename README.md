@@ -24,7 +24,7 @@
 ```bash
 # Clone the repository
 git clone https://github.com/ManatoYamashita/tcu-animation.git
-cd void-astro
+cd tcu-animation
 
 #  Install dependencies
 npm i
