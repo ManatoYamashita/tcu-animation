@@ -6,6 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection, type CollectionEntry } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import TagLink from "../../components/TagLink.astro";
+import { Image } from 'astro:assets';
 
 type Post = CollectionEntry<'blog'>;
 
@@ -61,10 +62,15 @@ posts.forEach((post) => {
                 </div>
                 <a href={`/blog/${post.slug}`}>
                   <div class="w-40 h-24 border border-gray-200">
-                    <img
-                      src={post.data.heroImage}
+                    <Image
+                      src={post.data.heroImage || '/public/tcuA.webp'}
                       alt={post.data.title}
                       class="w-full h-full object-cover"
+                      width={1020}
+                      height={510}
+                      widths={[320, 640, 960, 1020]}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 1200px"
+                      loading="lazy"
                     />
                   </div>
                 </a>

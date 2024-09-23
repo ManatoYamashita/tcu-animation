@@ -10,6 +10,8 @@ import {
 //   DropdownSubmenu,
 } from "astro-navbar";
 import ThemeIcon from "./ThemeIcon.astro";
+import { Image } from 'astro:assets';
+import logoImg from '/public/logo.webp';
 
 ---
 
@@ -17,7 +19,16 @@ import ThemeIcon from "./ThemeIcon.astro";
   <Astronav>
     <div class="flex w-full justify-between items-end border-b lg:border-none pb-4 lg:pb-0 relative overflow-hidden">
     	<a class="logo-wrapper font-semibold text-xl flex gap-2 items-center group" href="/">
-			<img src="/logo.webp" class="logo absolute" alt="都市大アニメーション">
+			<Image
+				src={logoImg}
+				alt="都市大アニメーション"
+				class="logo absolute"
+				width={400}
+				height={100}
+				widths={[320, 640, 960, 1020]}
+				sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 1200px"
+				loading="lazy"
+			/>
 		</a>
       <div class="lg:hidden flex items-center justify-center gap-4">
         <MenuIcon class="w-4 h-4 text-gray-800 dark:text-neutral-300" />
