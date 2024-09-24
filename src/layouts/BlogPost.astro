@@ -17,6 +17,15 @@ const { title, description, pubDate, heroImage, tags } = Astro.props;
   <head>
     <BaseHead title={title} description={description} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61T79P21HB"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-61T79P21HB');
+    </script>
   </head>
   <body class="w-full mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300">
     <Header />

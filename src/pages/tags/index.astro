@@ -15,6 +15,15 @@ const tags =  posts.flatMap(post => post.data.tags).filter((tag, index, self) =>
 <html lang="en" class="min-h-dvh">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61T79P21HB"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-61T79P21HB');
+    </script>
   </head>
   <body class="w-full flex flex-col mx-auto min-h-dvh justify-between dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300">
     <Header />
