@@ -3,13 +3,13 @@ title: '都市大でアニメを作ろう！'
 description: 'みなさん、 アニメつくりPJ!(仮) に興味を持っていただきありがとうございます。
 今回のプロジェクトがどのようなものであるかをちゃんと説明してから、皆さんには参加を決めて欲しいと思っているので、一度説明会を行いたいと思います。'
 pubDate: 'Feb 24 2024'
-heroImage: '/blog-assets/thumb_about-us.webp'
+heroImage: '/blog-assets/1_startup/thumb_1.webp'
 tags: ['event', '武蔵工業会館', 'startup meeting']
 ---
 
 ## プロジェクト始動!!
 
-私が大学1年生の時に監督として、デジコンで制作した[アニメーション作品のブログ](https://tmana.sub.jp/tcudcAnimePj2021/src/tcudcAnimePj21.html)を見て、世田谷区の方々からアニメを作ってくれないかという声をいただいたところから、始まりました。
+私が大学1年生の時に監督として、[デジコン](https://tcu-dc.net)で制作した[アニメーション作品のブログ](https://tmana.sub.jp/tcudcAnimePj2021/src/tcudcAnimePj21.html)を見て、世田谷区の方々からアニメを作ってくれないかという声をいただいたところから、始まりました。
 
 当初はデジコンとして本件を受注し、私が中心となってデジコン会員で作品を作るはずでしたが、私の情熱は虚しくデジコンとして今回の依頼は受けないことになってしまったので、せっかく世田谷区の人が自分を見つけてくれたのなら絶対に逃すまいと、私一人で本件を受けることで、一旦作品を作ることになりました。
 
@@ -27,7 +27,7 @@ tags: ['event', '武蔵工業会館', 'startup meeting']
 * 役割決め
 * 今後の流れの決定
 
-![都市大生募集](/blog-assets/images/recruit-poster-for-dc.webp)
+![都市大生募集](/blog-assets/1_startup/poster-in-dc.webp)
 
 ## 役職の募集
 
@@ -49,4 +49,9 @@ tags: ['event', '武蔵工業会館', 'startup meeting']
 これで、作品制作を行うための準備は完了です！都市大アニメーションの皆さんこれからもよろしくお願いします！
 みんなでいい作品を作りましょう
 
-![Let's Animate!](/blog-assets/images/lets-animate.webp)
+<div class="flex flex-col sm:flex-row w-full space-y-4 sm:space-x-4 px-4">
+    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/1_startup/b7.webp" alt="イメージボード1 むな" />
+    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/1_startup/b7-meet.webp" alt="イメージボード2 山下マナト" />
+</div>
+
+![Let's Animate!](/blog-assets/1_startup/lets-animate.webp)

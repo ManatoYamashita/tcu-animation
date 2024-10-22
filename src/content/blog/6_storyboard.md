@@ -2,7 +2,7 @@
 title: '絵コンテを作ろう！'
 description: 'アニメ制作における重要な工程の一つに絵コンテというものがあります。絵コンテは監督や映像を作る人がアニメータにどんな絵を描いて欲しいか、芝居をして欲しいか伝える役目があります。'
 pubDate: 'Sep 7 2024'
-heroImage: '/blog-assets/blog-storyboard-thumbnail.webp'
+heroImage: '/blog-assets/6_storyboard/6_thumb.webp'
 tags: ['制作', 'blog', '絵コンテ']
 ---
 
@@ -24,13 +24,13 @@ tags: ['制作', 'blog', '絵コンテ']
 担当は、私と、むな、izunaの3人で脚本を元に4シーン描きました。
 
 <div class="flex flex-col sm:flex-row w-full space-y-4 sm:space-x-4 px-4">
-    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/images/imageboard-1.webp" alt="イメージボード1 むな" />
-    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/images/imageboard-2.webp" alt="イメージボード2 山下マナト" />
+    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/6_storyboard/imageboard-1.webp" alt="イメージボード1 むな" />
+    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/6_storyboard/imageboard-2.webp" alt="イメージボード2 山下マナト" />
 </div>
 
 <div class="flex flex-col sm:flex-row w-full space-y-4 sm:space-x-4 px-4">
-    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/images/imageboard-3.webp" alt="イメージボード3 山下マナト" />
-    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/images/imageboard-4.webp" alt="イメージボード4 izuna" />
+    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/6_storyboard/imageboard-3.webp" alt="イメージボード3 山下マナト" />
+    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/6_storyboard/imageboard-4.webp" alt="イメージボード4 izuna" />
 </div>
 
 ## 担当を分けよう
@@ -40,7 +40,7 @@ tags: ['制作', 'blog', '絵コンテ']
 脚本を読むと主に6つのセクションに分けることができたため、1人ずつパート分けして絵コンテを作っていこう思います！
 
 担当は以下のようになりました！
-![絵コンテの担当わけ](/blog-assets/images/storyb-parts.webp)
+![絵コンテの担当わけ](/blog-assets/6_storyboard/storyb-parts.webp)
 
 1. 自己紹介イントロ: 山下マナト
 2. 指導員との会話: まつリーぬ
@@ -55,7 +55,7 @@ tags: ['制作', 'blog', '絵コンテ']
 2. 絵コンテを描いたら、みんなで持ち寄って意見を言い合います
 3. その話し合いをもとに修正します
 
-![絵コンテ作業中](/blog-assets/images/storyb-writing.webp)
+![絵コンテ作業中](/blog-assets/6_storyboard/storyb-writing.webp)
 
 ## 仕上げの修正！完成！
 
@@ -65,8 +65,8 @@ tags: ['制作', 'blog', '絵コンテ']
 次はいよいよ作画の作業を行います！
 
 <div class="flex flex-col sm:flex-row w-full space-y-4 sm:space-x-4 px-4">
-    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/images/storyb-1.webp" alt="絵コンテ1 山下" />
-    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/images/storyb-2.webp" alt="絵コンテ2 まつリーぬ" />
+    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/6_storyboard/storyb-1.webp" alt="絵コンテ1 山下" />
+    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/6_storyboard/storyb-2.webp" alt="絵コンテ2 まつリーぬ" />
 </div>
-    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/images/storyb-3.webp" alt="絵コンテ3 山下" />
+    <img class="w-full sm:w-1/2 h-96 object-cover blog-image" src="/blog-assets/6_storyboard/storyb-3.webp" alt="絵コンテ3 山下" />
 </div>

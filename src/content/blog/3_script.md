@@ -3,7 +3,7 @@ title: '脚本を作ろう！！'
 description: 'アニメの'
 pubDate: 'July 15 2024'
 tags: ['脚本', 'アニメ制作', '武蔵工業会館', '東京都市大学']
-heroImage: '/blog-assets/meeting-for-script.webp'
+heroImage: '/blog-assets/3_script/3_thumb.webp'
 ---
 
 視察に行ったら、早速脚本の制作に取り掛かります。
@@ -28,7 +28,7 @@ heroImage: '/blog-assets/meeting-for-script.webp'
 
 ## 2. 1次提出
 
-<img width="400" src="/blog-assets/images/script-souan.webp" alt="脚本イメージボツ案" />
+<img width="400" src="/blog-assets/3_script/script-souan.webp" alt="脚本イメージボツ案" />
 
 4月23日、私が個人的に縁があったので、武蔵工業会館を使わせていただきました。
 みんなが考えてきた脚本を世田谷区の方々に見せましたが、結果としてはまだ向こうの意にそぐうものは見せられず、もっとヒアリングを行いました。
@@ -36,8 +36,6 @@ heroImage: '/blog-assets/meeting-for-script.webp'
 それらのフィードバックを終えて、もう一度脚本を練り直すことに、
 脚本担当の`むぎゅ`氏の案をベースにもう一度脚本を練り直す方針にしました。
 理由としては、彼の案は、`指導員から見たら子供は突拍子もない行動をする`という点がうまく書けていて良かったからです。
-
-<img width="500" src="/blog-assets/images/building7.webp" alt="脚本イメージボツ案" />
 
 こうして書かれた仮脚本を脚本担当の私と`あや`さんと一緒にブラッシュアップして、完成しました。
 
@@ -47,6 +45,6 @@ heroImage: '/blog-assets/meeting-for-script.webp'
 **↓完成した脚本は以下**
 
 <a href="https://tcu-yamamana.notion.site/5a4c680ae5d64d4992b3478c2e368b7b?pvs=4">
-    <img width="400" src="/blog-assets/images/script-complete.webp" alt="完成した脚本" />
+    <img width="400" src="/blog-assets/3_script/script-complete.webp" alt="完成した脚本" />
 </a>
 

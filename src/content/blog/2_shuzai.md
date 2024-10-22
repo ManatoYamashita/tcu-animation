@@ -3,7 +3,7 @@ title: '児童館と小学校(新BOP)に取材に行きました！'
 description: '2024年3月28日に東京都世田谷区に位置する等々力児童館と玉堤小学校に作品制作のため取材に行きました！'
 pubDate: 'May 28 2024'
 tags: ['取材', '玉堤小学校', '等々力小学校']
-heroImage: '/blog-assets/shuzai.webp'
+heroImage: '/blog-assets/2_shuzai/2_thumb.webp'
 ---
 
 是非一度取材に行って、現地のイメージを掴んでみてはどうかと世田谷区の方々から提案をいただきました。
@@ -19,18 +19,18 @@ heroImage: '/blog-assets/shuzai.webp'
 
 ## 等々力児童館
 
-![等々力児童館](/blog-assets/images/jidoukan-1.webp)
+![等々力児童館](/blog-assets/2_shuzai/jidoukan-1.webp)
 
 `世田谷区等々力3－25－16`に位置する児童館です。等々力駅から徒歩で10~15分くらいに位置にありました。
 
-<img src="/blog-assets/images/jidoukan-2.webp" alt="等々力児童館" width="500" />
+<img src="/blog-assets/2_shuzai/jidoukan-2.webp" alt="等々力児童館" width="500" />
 
 脚本と作画担当を主に10数人で等々力児童館にお邪魔し、子どもたちと一緒に遊びました。
 工作室のような場所で工作するこや、個室にこもって勉強しているこども、漫画を読んでいたり、体育館で卓球やバスケをしている子供達もいました。
 外に出てみると、野球や一輪車をしている子がいて、さらにサッカーしている子もいたので、それに混ぜてもらい、一緒にサッカーをしました。
 普通に楽しかったですね。
 
-<img src="/blog-assets/images/jidoukan-3.webp" alt="等々力児童館" width="500" />
+<img src="/blog-assets/2_shuzai/jidoukan-3.webp" alt="等々力児童館" width="500" />
 
 オセロか囲碁だったかと思いますが、それをしながらスマホで動画編集をしている子もいてびっくりしました。自分も動画編集は趣味の一つなので、最近の子供の情報リテラシーの高さと、情報技術の進化に感心しました。
 他のメンバーも女の子の会話に混ざり一緒に話を楽しんでいたメンバーや、廊下で大道芸やコマで遊んでいるメンバーもいて面白かったです。
@@ -42,17 +42,17 @@ heroImage: '/blog-assets/shuzai.webp'
 `世田谷区玉堤2－11－1`に位置する小学校で、東京都市大学世田谷キャンパスの目と鼻の先にあります。
 メンバーの一人であり、絵コンテを担当した`あべりあ`さんもここの卒業生でした！
 
-![玉堤小学校](/blog-assets/images/tamashou-1.webp)
+![玉堤小学校](/blog-assets/2_shuzai/tamashou-1.webp)
 
 ↑めちゃくちゃ上手くて感心したので写真を撮りました。
 
 小学校のBOPの教室にお邪魔すると、すぐに子供達が集まってきてくれました。子供達にとっても大学生が珍しかったんでしょうかね。
 そのパワフルさに圧倒されました。
 
-<img src="/blog-assets/images/tamashou-2.webp" alt="玉堤小学校" width="500" />
+<img src="/blog-assets/2_shuzai/tamashou-2.webp" alt="玉堤小学校" width="500" />
 
 一緒にドミノを立てて遊びました。
 帰り際にそのドミノを倒して、盛り上がりました。
 楽しいなおい。
 
-<img src="/blog-assets/images/domino.gif" alt="ドミノ" width="500" />
+<img src="/blog-assets/2_shuzai/domino.webp" alt="ドミノ" width="500" />
