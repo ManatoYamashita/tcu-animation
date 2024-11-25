@@ -1,6 +1,6 @@
 ---
 title: '脚本を作ろう！！'
-description: 'アニメの'
+description: 'アニメの流れやストーリーを決めるために世田谷区と綿密に会議をしながら脚本を制作しました。作る作品の内容に該当するので、最も重要な工程だと言えそうです。'
 pubDate: 'July 15 2024'
 tags: ['脚本', 'アニメ制作', '武蔵工業会館', '東京都市大学']
 heroImage: '/blog-assets/3_script/3_thumb.webp'
