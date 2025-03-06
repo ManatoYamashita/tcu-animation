@@ -34,3 +34,5 @@ npm run dev
 ```
 
 [tcuA-video.webm](https://github.com/user-attachments/assets/eee253fd-702b-4656-8f4f-52701181d24f)
+
+[welcometonewbop-short](https://youtube.com/shorts/g88WbiJULao?feature=share)
