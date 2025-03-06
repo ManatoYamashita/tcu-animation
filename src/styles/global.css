@@ -23,10 +23,6 @@ img {
     height: auto;
 }
 
-h1 {
-    color: var(--color-primary);
-}
-
 hr {
     border: 0;
     border-top: 1px solid #767676;
