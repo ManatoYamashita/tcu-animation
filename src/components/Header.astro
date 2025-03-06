@@ -15,7 +15,7 @@ import logoImg from '/public/logo.webp';
 
 ---
 
-<header class="lg:flex pt-4 px-4 px-6 md:pt-10 md:pb-5 gap-5 w-full transition-all">
+<header class="fixed top-0 z-10 w-full lg:flex pt-4 px-4 px-6 md:pt-10 md:pb-5 gap-5 transition-all">
   <Astronav>
     <div class="flex w-full justify-between items-end border-b lg:border-none pb-4 lg:pb-0 relative overflow-hidden">
     	<a class="logo-wrapper font-semibold text-xl flex gap-2 items-center group" href="/">
@@ -47,7 +47,6 @@ import logoImg from '/public/logo.webp';
 </header>
 
 <script>
-
 import { gsap } from 'gsap';
 
 gsap.from('.logo', {
@@ -70,28 +69,44 @@ gsap.fromTo('.menu-item',{
 		delay: 2.5
 	}
 );
+
+// スクロールに応じてヘッダーの背景色を変更
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
+  if (window.scrollY > window.innerHeight * 0.5) {
+    header?.classList.add('scrolled');
+  } else {
+    header?.classList.remove('scrolled');
+  }
+});
 </script>
 
 <style>
 header {
-	position: fixed;
-	top: 0;
-    z-index: 1;
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: transparent;
+	transition: background-color 0.3s ease;
 }
+
+header.scrolled {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+}
+
 .logo-wrapper {
 	width: 250px;
 	height: 33px;
 }
+
 .logo {
 	width: 25ch;
-  }
-  .logo-wrapper:hover {
+}
+
+.logo-wrapper:hover {
 	transform-origin: center;
 	transform: scale(1.05);
-  }
+}
 
-  @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
 	.logo-wrapper {
 		width: 250px;
 		height: 33px;
@@ -99,5 +114,5 @@ header {
 	.logo {
 		width: 15ch;
 	}
-  }
+}
 </style>

@@ -4,7 +4,7 @@ import { Icon } from "astro-iconify";
 const today = new Date();
 ---
 
-<footer class="mt-20 md:mt-36 mx-4">
+<footer class="footer z-[3] relative bg-white pt-20 md:pt-36 px-4">
   <div class="flex gap-4 border-b pb-8 mb-5 flex-col lg:flex-row">
     <div class="w-full lg:w-2/3">
       <h2 class="footer-title text-lg font-bold">都市大生スタッフ募集中！</h2>
@@ -63,7 +63,7 @@ const today = new Date();
       </div>
     </div>
   </div>
-  <p class="text-sm font-medium mb-10">
+  <p class="text-sm font-medium pb-10">
     &copy; 2024-{today.getFullYear()} <a href="https://manapuraza.com" target="_blank"><strong>都市大アニメーション / ManatoYamashita</strong></a>&nbsp; All rights reserved.
   </p>
 </footer>

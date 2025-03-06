@@ -23,4 +23,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
+# Cursor
+.cursor
+.cursorrules
+
+# VSCode
 .vscode/

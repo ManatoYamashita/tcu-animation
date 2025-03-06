@@ -2,17 +2,18 @@
 import { getCollection } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 import TagLink from "./TagLink.astro";
+import type { CollectionEntry } from "astro:content";
 
 const posts = await getCollection("blog");
 
 // 公開日（pubDate）の降順（新しい順）にソート
 let sortedPosts = posts.sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
 // numberOfPostsToDisplay に従って最新の投稿を抽出
 let numberOfPostsToDisplay = 4;
-let recentPosts = sortedPosts.slice(0, numberOfPostsToDisplay);
+let recentPosts: CollectionEntry<"blog">[] = sortedPosts.slice(0, numberOfPostsToDisplay);
 ---
 
 <div class="px-4 md:px-20 flex flex-col gap-4 mt-16">
@@ -53,7 +54,10 @@ let recentPosts = sortedPosts.slice(0, numberOfPostsToDisplay);
 <script>
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { CSSRulePlugin } from 'gsap/CSSRulePlugin';
+  
   gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(CSSRulePlugin);
 
   gsap.from('.recent-pub', {
     scrollTrigger: {

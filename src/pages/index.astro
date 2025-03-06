@@ -24,21 +24,24 @@ import RecentPublications from "../components/RecentPublications.astro";
     </script>
   </head>
   
-  <body class="w-full mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300" >
-    <Header />
-
-    <main class="lg:mt-24 mt-16 flex flex-col justify-center">
-      <div class="w-full flex flex-col items-center gap-2.5 px-4 lg:px-0 mt-6">
-        <video autoplay loop muted playsinline poster="tcu-icoon.webp" style="width: 100%; height: auto;" class="hero-video" aria-label="都市大アニメーションポスタービデオ">
+  <body class="w-full mx-auto dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300" >
+    <div class="hero-section">
+      <div class="video-container fixed">
+        <video autoplay loop muted playsinline poster="tcu-icon.webp" class="hero-video" aria-label="都市大アニメーションポスタービデオ">
           <source src="tcuA-video.webm" type="video/webm">
           <source src="tcuA-video.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
+      <div class="hero-overlay fixed"></div>
+      <Header />
+      <div class="hero-content">
+        <h1 class="title text-4xl md:text-6xl font-noto font-white font-bold text-shadow-lg text-shadow-black">夢に翼を！<br>アニメーションで命を吹き込む</h1>
+      </div>
+    </div>
+
+    <main class="main-content">
       <div class="px-4 md:px-16 flex flex-col gap-4 md:my-10">
-        <div class="heading">
-          <h1 class="title text-2xl md:text-5xl w-full font-noto font-black">夢に翼を！アニメーションで命を吹き込む</h1>
-        </div>
         <div class="wrapper">
           <p class="paragraph w-full text-justify text-base md:text-lg">
             東京都市大学アニメーションスタジオ（都市大アニメーション）とは現役都市大生の有志（30名ほど）で構成されるアニメーション制作集団です。
@@ -47,8 +50,8 @@ import RecentPublications from "../components/RecentPublications.astro";
           </p>
         </div>
       </div>
-	    <RecentPublications />
-	  </main>
+      <RecentPublications />
+    </main>
 
     <Footer />
   </body>
@@ -59,75 +62,148 @@ import RecentPublications from "../components/RecentPublications.astro";
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from('.hero-video', {
-    duration: 1,
-    scale: 5,
-    ease: 'power2.out',
-    onComplete: function() {
-      gsap.to('.hero-video', {
-        scale: 1,
-      });
+  // ヒーロービデオのパララックス効果
+  const videoTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.hero-section',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true
     }
   });
 
-  const headingTl = gsap.timeline({
-    repeat: -1,
-    repeatDelay: 2,
-    yoyo: true
+  videoTimeline.to('.hero-video', {
+    scale: 0.75,
+    borderRadius: '10%',
+    y: 0,
+    ease: 'none'
   });
 
-headingTl
-  .from(".heading", {
-    duration: 1,
-    scaleX: 0,
-    transformOrigin: "left",
-    ease: "expo.inOut"
-  })
-  .from(
-    ".heading h1",
+  // main-contentのオーバーレイ効果
+  gsap.fromTo('.main-content', 
+    { y: '30vh' }, 
     {
-      y: "100%",
-      duration: 0.8,
-      ease: "expo.out"
-    },
-    "-=0.2"
-  )
-  .from(
-    ".heading",
-    {
-      css: { borderBottom: "4px solid var(--color-primary)" },
-      duration: 2,
-      transformOrigin: "right",
-      ease: "none"
-    },
-    "-=1"
-  )
-  .from(
-    ".heading h1",
-    {
-      duration: 2,
-      transformOrigin: "right",
-      ease: "none",
-      css: { color: "black" }
-    },
-    "-=2"
+      scrollTrigger: {
+        trigger: '.hero-section',
+        start: '30% top',
+        end: 'bottom 40%',
+        scrub: true
+      },
+      y: 0,
+      ease: 'power1.inOut'
+    }
   );
 
+  // ヒーローコンテンツのアニメーション
+  gsap.from('.hero-content h1', {
+    duration: 1.2,
+    y: 100,
+    opacity: 0,
+    ease: 'power3.out',
+    delay: 0.5
+  });
+
+  // 段落のアニメーション
   gsap.fromTo(
-    ".paragraph",  // 対象となるクラス
-    { y: 100 }, // 初期状態: 不透明度 0、少し下に位置
+    ".paragraph",
+    { y: 100, opacity: 0 },
     {
       y: 0,
-      duration: 1, // アニメーションの長さ
+      opacity: 1,
+      duration: 1,
       ease: "power3.out",
       scrollTrigger: {
-        trigger: ".paragraph", // トリガーとなる要素
-        start: "top 80%", // アニメーションが始まるスクロール位置
-        toggleActions: "play none none none", // アニメーションの開始後の動作
+        trigger: ".paragraph",
+        start: "top 80%",
       }
     }
   );
+
+  // 動画のパララックス効果を修正
+  gsap.to('.video-container', {
+    scrollTrigger: {
+      trigger: '.hero-section',
+      start: '30% top',
+      end: 'bottom 40%',
+      scrub: true
+    },
+    x: 0,
+    ease: 'power1.inOut'
+  });
 </script>
+
+<style>
+.hero-section {
+  /* position: relative; */
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.video-container {
+  /* position: sticky; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-video {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  position: fixed;
+  bottom: 20%;
+  left: 0;
+  width: 100%;
+  padding: 0 4rem;
+  color: white;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.main-content {
+  position: relative;
+  background-color: white;
+  z-index: 3;
+  border-radius: 3rem 3rem 0 0;
+  padding-top: 4rem;
+  margin-top: -3rem;
+}
+
+.dark .main-content {
+  background-color: #262626;
+}
+
+.wrapper {
+  overflow: hidden;
+}
+
+header {
+  background-color: transparent !important;
+}
+</style>
 
 <script type="application/ld+json" is:inline>
 {
@@ -165,14 +241,3 @@ headingTl
   }
 }
 </script>
-
-<style>
-.heading {
-    overflow: hidden;
-    border-bottom: 2px solid black;
-    margin-bottom: 1rem;
-}
-.wrapper {
-    overflow: hidden;
-}
-</style>
