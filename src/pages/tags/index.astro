@@ -9,8 +9,11 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 const posts = (await getCollection("blog")).sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
-const tags = posts.flatMap((post: CollectionEntry<"blog">) => post.data.tags)
-  .filter((tag: string, index: number, self: string[]) => self.indexOf(tag) === index);
+const tags = posts
+  .flatMap((post: CollectionEntry<"blog">) => post.data.tags || [])
+  .filter((tag, index, self) => 
+    tag !== undefined && self.indexOf(tag) === index
+  ) as string[];
 ---
 
 <!doctype html>
@@ -34,9 +37,9 @@ const tags = posts.flatMap((post: CollectionEntry<"blog">) => post.data.tags)
     >
 
         <ul class="flex flex-wrap gap-2">
-            {tags.map((tag: string) => (
+            {tags.map(tag => (
                 <li>
-                    <a href={`/tags/${tag}`} class="p-1 rounded-md">
+                    <a href={`/tags/${tag}`} class=" p-1 rounded-md">
                         #{tag}
                     </a>
                 </li>
