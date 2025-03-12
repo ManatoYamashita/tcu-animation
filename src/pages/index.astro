@@ -14,8 +14,8 @@ import RecentPublications from "../components/RecentPublications.astro";
     <link rel="preload" href="tcu-icon.webp" as="image">
     <link rel="preload" href="tcuA-video.webm" as="video">
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61T79P21HB"></script>
-    <script type="text/partytown">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61T79P21HB" is:inline></script>
+    <script type="text/partytown" is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -27,16 +27,55 @@ import RecentPublications from "../components/RecentPublications.astro";
   <body class="w-full mx-auto dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300" >
     <div class="hero-section">
       <div class="video-container fixed">
-        <video autoplay loop muted playsinline poster="tcu-icon.webp" class="hero-video" aria-label="都市大アニメーションポスタービデオ">
-          <source src="tcuA-video.webm" type="video/webm">
-          <source src="tcuA-video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+        <div class="youtube-container">
+          <!-- <iframe 
+            src="https://www.youtube.com/embed/r4XTL4S_xMs?autoplay=1&mute=1&loop=1&playlist=r4XTL4S_xMs&controls=0" 
+            title="都市大アニメーション紹介動画" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen
+            class="hero-video"
+          ></iframe> -->
+          <iframe width="1280" height="720" 
+          src="https://www.youtube.com/embed/ql6mhhHCldY?autoplay=1&mute=1" 
+          title="AirPods Pro | Adaptive Audio. Now playing. | Apple" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen
+          class="hero-video"
+          ></iframe>
+        </div>
       </div>
+
+      <!-- オーバーレイ -->
       <div class="hero-overlay fixed"></div>
+      
+      <!-- ヘッダー -->
       <Header />
+      
+      <!-- ヒーローコンテンツ -->
       <div class="hero-content">
-        <h1 class="title text-4xl md:text-6xl font-noto font-white font-bold text-shadow-lg text-shadow-black">夢に翼を！<br>アニメーションで命を吹き込む</h1>
+        <div class="max-w-4xl mx-auto px-4 md:px-6">
+          <h1 class="title text-4xl md:text-6xl font-noto font-white font-bold text-shadow-lg text-shadow-black mb-6">
+            夢に翼を！<br>アニメーションで命を吹き込む
+          </h1>
+          <p class="text-white text-lg md:text-xl mb-8 max-w-2xl text-shadow-sm">
+            東京都市大学アニメーションスタジオは、現役都市大生の有志で構成されるアニメーション制作集団です。
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#explore" class="inline-flex items-center justify-center px-6 py-3 bg-white text-black font-medium rounded-md transition-all duration-300 hover:bg-opacity-90">
+              <span>作品を見る</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-medium rounded-md transition-all duration-300 hover:bg-white hover:bg-opacity-10">
+              お問い合わせ
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -58,10 +97,12 @@ import RecentPublications from "../components/RecentPublications.astro";
 </html>
 
 <script>
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-  gsap.registerPlugin(ScrollTrigger);
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
+// ページロード時のアニメーション
+window.addEventListener('load', () => {
   // ヒーロービデオのパララックス効果
   const videoTimeline = gsap.timeline({
     scrollTrigger: {
@@ -79,69 +120,116 @@ import RecentPublications from "../components/RecentPublications.astro";
     ease: 'none'
   });
 
-  // main-contentのオーバーレイ効果
-  gsap.fromTo('.main-content', 
-    { y: '30vh' }, 
-    {
-      scrollTrigger: {
-        trigger: '.hero-section',
-        start: '30% top',
-        end: 'bottom 40%',
-        scrub: true
-      },
-      y: 0,
-      ease: 'power1.inOut'
-    }
-  );
-
-  // ヒーローコンテンツのアニメーション
+  // ヒーローコンテンツのアニメーション（タイトル）
   gsap.from('.hero-content h1', {
-    duration: 1.2,
-    y: 100,
+    duration: 1,
+    y: 50,
     opacity: 0,
     ease: 'power3.out',
-    delay: 0.5
+    delay: 0.3
   });
 
-  // 段落のアニメーション
-  gsap.fromTo(
-    ".paragraph",
-    { y: 100, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".paragraph",
-        start: "top 80%",
-      }
-    }
-  );
+  // ヒーローコンテンツのアニメーション（説明文）
+  gsap.from('.hero-content p', {
+    duration: 1,
+    y: 30,
+    opacity: 0,
+    ease: 'power3.out',
+    delay: 0.6
+  });
 
-  // 動画のパララックス効果を修正
-  gsap.to('.video-container', {
+  // ヒーローコンテンツのアニメーション（ボタン）
+  gsap.from('.hero-content a', {
+    duration: 0.8,
+    y: 20,
+    opacity: 0,
+    stagger: 0.2,
+    ease: 'power2.out',
+    delay: 0.9
+  });
+});
+
+// スクロールアニメーション
+// main-contentのオーバーレイ効果
+gsap.fromTo('.main-content', 
+  { y: '30vh' }, 
+  {
     scrollTrigger: {
       trigger: '.hero-section',
       start: '30% top',
       end: 'bottom 40%',
       scrub: true
     },
-    x: 0,
+    y: 0,
+    ease: 'power1.inOut'
+  }
+);
+
+// 段落のアニメーション
+gsap.fromTo(
+  ".paragraph",
+  { y: 100, opacity: 0 },
+  {
+    y: 0,
+    opacity: 1,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".paragraph",
+      start: "top 80%",
+    }
+  }
+);
+
+// スクロール時のボタンエフェクト
+gsap.to('.hero-content', {
+  scrollTrigger: {
+    trigger: '.hero-section',
+    start: 'top top',
+    end: '30% top',
+    scrub: true
+  },
+  opacity: 0,
+  y: -50,
+  ease: 'power1.in'
+});
+
+// スクロールダウンインジケーターのアニメーション
+const scrollIndicator = document.querySelector('.scroll-indicator');
+if (scrollIndicator) {
+  gsap.to(scrollIndicator, {
+    y: 10,
+    duration: 1,
+    repeat: -1,
+    yoyo: true,
     ease: 'power1.inOut'
   });
+
+  // スクロール開始時に非表示
+  gsap.to(scrollIndicator, {
+    scrollTrigger: {
+      trigger: '.hero-section',
+      start: '5% top',
+      end: '10% top',
+      scrub: true
+    },
+    opacity: 0,
+    ease: 'power1.in'
+  });
+}
 </script>
 
 <style>
 .hero-section {
-  /* position: relative; */
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .video-container {
-  /* position: sticky; */
   top: 0;
   left: 0;
   width: 100%;
@@ -150,37 +238,65 @@ import RecentPublications from "../components/RecentPublications.astro";
   z-index: 0;
 }
 
-.hero-video {
-  /* position: absolute; */
-  top: 0;
-  left: 0;
+.youtube-container {
+  position: relative;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* PCサイズ - 横幅いっぱいに表示し、縦は必要に応じて切れる */
+@media (min-aspect-ratio: 9/16) {
+  .hero-video {
+    width: 100%;
+    height: 100vh;
+    min-width: 177.78vh; /* 16:9のアスペクト比を維持しながら最低幅を設定 */
+    object-fit: cover;
+  }
+}
+
+/* モバイルサイズ - 画面いっぱいに表示 */
+@media (max-aspect-ratio: 9/16) {
+  .hero-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
 }
 
 .hero-overlay {
-  /* position: absolute; */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6); /* オーバーレイを少し濃くした */
   z-index: 1;
 }
 
 .hero-content {
-  position: fixed;
-  bottom: 20%;
+  position: absolute;
+  top: 50%;
   left: 0;
   width: 100%;
-  padding: 0 4rem;
+  transform: translateY(-50%);
   color: white;
   z-index: 2;
+  padding: 0 1rem;
 }
 
 .hero-content h1 {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.text-shadow-sm {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .main-content {
@@ -202,6 +318,8 @@ import RecentPublications from "../components/RecentPublications.astro";
 
 header {
   background-color: transparent !important;
+  position: relative;
+  z-index: 3;
 }
 </style>
 
