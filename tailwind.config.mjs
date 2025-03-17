@@ -4,13 +4,16 @@ export default {
     darkMode: 'class',
     theme: {
         extend: {
+            colors: {
+                primary: '#E36464',
+            },
             fontFamily: {
                 roboto: ['Roboto', 'sans-serif'],
                 dela: ['Dela Gothic One', 'cursive'],
                 noto: ['Noto Sans JP', 'sans-serif'],
                 reddit: ['Reddit Mono', 'sans-serif'],
                 sawarabi: ['Sawarabi Mincho', 'sans-serif'],
-              },
+            },
         },
     },
     plugins: [],

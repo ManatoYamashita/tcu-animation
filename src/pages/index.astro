@@ -12,7 +12,6 @@ import RecentPublications from "../components/RecentPublications.astro";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="preload" href="tcu-icon.webp" as="image">
-    <link rel="preload" href="tcuA-video.webm" as="video">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-61T79P21HB" is:inline></script>
     <script type="text/partytown" is:inline>
@@ -25,64 +24,69 @@ import RecentPublications from "../components/RecentPublications.astro";
   </head>
   
   <body class="w-full mx-auto dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300" >
-    <div class="hero-section">
-      <div class="video-container fixed">
-        <div class="youtube-container">
-          <!-- <iframe 
-            src="https://www.youtube.com/embed/r4XTL4S_xMs?autoplay=1&mute=1&loop=1&playlist=r4XTL4S_xMs&controls=0" 
-            title="都市大アニメーション紹介動画" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen
-            class="hero-video"
-          ></iframe> -->
-          <iframe 
-            width="774" 
-            height="435" 
-            src="https://www.youtube.com/embed/G69H1ePQNE8" 
-            title="Trailer - WelcomeToNewBOP!" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen
-            class="hero-video"
-          ></iframe>
-          <!-- <video autoplay muted loop playsinline class="hero-video">
-            <source src="tcuA-video.webm" type="video/webm">
-          </video> -->
-        </div>
-      </div>
-
-      <!-- オーバーレイ -->
-      <div class="hero-overlay fixed"></div>
-      
-      <!-- ヘッダー -->
+    <!-- ヘッダー -->
+    <section class="fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-800">
       <Header />
-      
-      <!-- ヒーローコンテンツ -->
-      <div class="hero-content">
-        <div class="max-w-4xl mx-auto px-4 md:px-6">
-          <h1 class="title text-4xl md:text-6xl font-noto font-white font-bold text-shadow-lg text-shadow-black mb-6">
-            夢に翼を！<br>アニメーションで命を吹き込む
-          </h1>
-          <p class="text-white text-lg md:text-xl mb-8 max-w-2xl text-shadow-sm">
-            東京都市大学アニメーションスタジオは、現役都市大生の有志で構成されるアニメーション制作集団です。
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="#explore" class="inline-flex items-center justify-center px-6 py-3 bg-white text-black font-medium rounded-md transition-all duration-300 hover:bg-opacity-90">
-              <span>作品を見る</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </a>
-            <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-medium rounded-md transition-all duration-300 hover:bg-white hover:bg-opacity-10">
-              お問い合わせ
-            </a>
+    </section>
+    
+    <!-- メインコンテンツ（ヘッダーの高さ分のパディングを追加） -->
+    <div class="pt-6"></div>
+      <!-- heroセクション -->
+      <section id="hero" class="relative dark:bg-gray-800 bg-white min-h-screen h-full overflow-hidden mt-10 z-20">
+        <div class="bg-white dark:bg-gray-800 flex relative items-center overflow-hidden">
+          <div class="container mx-auto px-6 flex flex-col-reverse sm:flex-row justify-evenly relative sm:py-16 gap-8">
+            <div class="sm:w-1/2 flex flex-col relative z-20">
+              <span class="w-20 h-2 bg-gray-800 dark:bg-white mb-12">
+              </span>
+              <h1 class="my-4 font-bebas-neue uppercase text-3xl sm:text-4xl font-black flex flex-col leading-none dark:text-white text-gray-800">
+                <span class="text-lg sm:text-xl">
+                  世田谷区共同 オリジナルアニメ完成！！
+                </span>
+                「新BOPへようこそ！」
+              </h1>
+              <p class="text-sm sm:text-base text-gray-700 dark:text-white">
+                  企画・製作: 世田谷区  <br>
+                  アニメーション制作: 都市大アニメーション <br>
+                  制作協力: 81プロデュース <br>
+                  総監督・学生代表: 山下マナト <br>
+                  主演: 伊東健人、上田麗奈 <br>
+              </p>
+              <hr class="my-8">
+              <p class="text-sm sm:text-base text-gray-700 dark:text-white">
+                世田谷区主導の元、一年をかけてアニメ作品がついに完成！世田谷区公式YouTubeチャンネルにて2025年3月14日から配信中！
+              </p>
+              <div class="flex mt-8">
+                <a href="https://youtu.be/zLuemAdQlMs?si=2kR9yVbVEfumg6gK" 
+                  class="uppercase py-2 px-4 rounded-lg border-2 border-transparent text-white text-md mr-4" 
+                  style="background-color: var(--color-primary); &:hover { opacity: 0.8; }">
+                  本編
+                  <small>(世田谷区公式YouTube)</small>
+                </a>
+                <a href="#" 
+                  class="uppercase py-2 px-4 rounded-lg bg-transparent border-2 text-md hover:text-white transition-colors duration-300" 
+                  style="border-color: var(--color-primary); color: var(--color-primary); &:hover { background-color: var(--color-primary); }">
+                  予告編
+                  <small>(世田谷区公式YouTube Shorts)</small>
+                </a>
+              </div>
+            </div>
+            <div class="sm:w-1/2 relative">
+              <div class="video-container bg-white">
+                <iframe 
+                  width="320" 
+                  height="569" 
+                  src="https://www.youtube.com/embed/_dqnVuiA4EI?autoplay=1&muted=1&playsinline=1&controls=0&loop=1" 
+                  title="新BOPへようこそ！ - Trailer" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerpolicy="strict-origin-when-cross-origin" 
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
     <main class="main-content">
       <div class="px-4 md:px-16 flex flex-col gap-4 md:my-10">
@@ -101,230 +105,96 @@ import RecentPublications from "../components/RecentPublications.astro";
   </body>
 </html>
 
-<script>
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
-
-// ページロード時のアニメーション
-window.addEventListener('load', () => {
-  // ヒーロービデオのパララックス効果
-  const videoTimeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: '.hero-section',
-      start: 'top top',
-      end: 'bottom top',
-      scrub: true
-    }
-  });
-
-  videoTimeline.to('.hero-video', {
-    scale: 0.75,
-    borderRadius: '10%',
-    y: 0,
-    ease: 'none'
-  });
-
-  // ヒーローコンテンツのアニメーション（タイトル）
-  gsap.from('.hero-content h1', {
-    duration: 1,
-    y: 50,
-    opacity: 0,
-    ease: 'power3.out',
-    delay: 0.3
-  });
-
-  // ヒーローコンテンツのアニメーション（説明文）
-  gsap.from('.hero-content p', {
-    duration: 1,
-    y: 30,
-    opacity: 0,
-    ease: 'power3.out',
-    delay: 0.6
-  });
-
-  // ヒーローコンテンツのアニメーション（ボタン）
-  gsap.from('.hero-content a', {
-    duration: 0.8,
-    y: 20,
-    opacity: 0,
-    stagger: 0.2,
-    ease: 'power2.out',
-    delay: 0.9
-  });
-});
-
-// スクロールアニメーション
-// main-contentのオーバーレイ効果
-gsap.fromTo('.main-content', 
-  { y: '30vh' }, 
-  {
-    scrollTrigger: {
-      trigger: '.hero-section',
-      start: '30% top',
-      end: 'bottom 40%',
-      scrub: true
-    },
-    y: 0,
-    ease: 'power1.inOut'
-  }
-);
-
-// 段落のアニメーション
-gsap.fromTo(
-  ".paragraph",
-  { y: 100, opacity: 0 },
-  {
-    y: 0,
-    opacity: 1,
-    duration: 1,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: ".paragraph",
-      start: "top 80%",
-    }
-  }
-);
-
-// スクロール時のボタンエフェクト
-gsap.to('.hero-content', {
-  scrollTrigger: {
-    trigger: '.hero-section',
-    start: 'top top',
-    end: '30% top',
-    scrub: true
-  },
-  opacity: 0,
-  y: -50,
-  ease: 'power1.in'
-});
-
-// スクロールダウンインジケーターのアニメーション
-const scrollIndicator = document.querySelector('.scroll-indicator');
-if (scrollIndicator) {
-  gsap.to(scrollIndicator, {
-    y: 10,
-    duration: 1,
-    repeat: -1,
-    yoyo: true,
-    ease: 'power1.inOut'
-  });
-
-  // スクロール開始時に非表示
-  gsap.to(scrollIndicator, {
-    scrollTrigger: {
-      trigger: '.hero-section',
-      start: '5% top',
-      end: '10% top',
-      scrub: true
-    },
-    opacity: 0,
-    ease: 'power1.in'
-  });
-}
-</script>
-
 <style>
-.hero-section {
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
+.video-section {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+  background-color: #000;
+}
+
+/* YouTubeプレーヤーのアスペクト比を修正 */
+.video-section iframe {
+  /* 黒帯を取り除くための設定 */
+  transform-origin: center;
 }
 
 .video-container {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.youtube-container {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.hero-video {
+/* 共通動画フレームスタイル */
+.video-frame {
+  border-radius: 2rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-/* PCサイズ - 横幅いっぱいに表示し、縦は必要に応じて切れる */
-@media (min-aspect-ratio: 9/16) {
-  .hero-video {
-    width: 100%;
-    height: 100vh;
-    min-width: 177.78vh; /* 16:9のアスペクト比を維持しながら最低幅を設定 */
-    object-fit: cover;
+/* デスクトップ用動画 */
+.desktop-video {
+  width: 100%;
+  max-width: 560px;
+  height: calc(100vw * 9/16);
+  max-height: 315px;
+  object-fit: cover;
+}
+
+/* モバイル用動画 */
+.mobile-video {
+  width: 100%;
+  max-width: 315px;
+  height: calc(100vw * 16/9);
+  max-height: 560px;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-top: 2rem;
+  }
+  
+  .desktop-video {
+    display: none;
+  }
+  
+  .mobile-video {
+    display: block;
+    width: 80%;
+    height: calc(80vw * 16/9);
+  }
+  
+  .video-container {
+    margin-bottom: 2rem;
   }
 }
 
-/* モバイルサイズ - 画面いっぱいに表示 */
-@media (max-aspect-ratio: 9/16) {
-  .hero-video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-  }
-}
-
-.hero-overlay {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* オーバーレイを少し濃くした */
-  z-index: 1;
-}
-
-.hero-content {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  transform: translateY(-50%);
-  color: white;
-  z-index: 2;
-  padding: 0 1rem;
-}
-
-.hero-content h1 {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-.text-shadow-sm {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
+/* メインコンテンツのスタイル修正 */
 .main-content {
   position: relative;
   background-color: white;
-  z-index: 3;
+  z-index: 2; /* 動画よりも上のz-indexに設定 */
   border-radius: 3rem 3rem 0 0;
   padding-top: 4rem;
-  margin-top: -3rem;
 }
 
 .dark .main-content {
   background-color: #262626;
 }
 
-.wrapper {
-  overflow: hidden;
-}
-
-header {
-  background-color: transparent !important;
+/* heroセクションのz-indexを明示的に設定 */
+#hero {
   position: relative;
-  z-index: 3;
+  z-index: 2;
 }
 </style>
 
