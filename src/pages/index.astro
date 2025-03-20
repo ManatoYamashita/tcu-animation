@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import RecentPublications from "../components/RecentPublications.astro";
@@ -30,9 +31,10 @@ import RecentPublications from "../components/RecentPublications.astro";
     </section>
     
     <!-- メインコンテンツ（ヘッダーの高さ分のパディングを追加） -->
-    <div class="pt-6"></div>
-      <!-- heroセクション -->
-      <section id="hero" class="relative dark:bg-gray-800 bg-white min-h-screen h-full overflow-hidden mt-10 z-20">
+    <!-- <div class="pt-6"></div> -->
+      <Hero />
+      <!-- 新作アニメ（新BOPへようこそ！）セクション -->
+      <section id="bop" class="relative dark:bg-gray-800 bg-white min-h-screen h-full overflow-hidden z-20">
         <div class="bg-white dark:bg-gray-800 flex relative items-center overflow-hidden">
           <div class="container mx-auto px-6 flex flex-col-reverse sm:flex-row justify-evenly relative sm:py-16 gap-8">
             <div class="sm:w-1/2 flex flex-col relative z-20">
@@ -201,8 +203,8 @@ import RecentPublications from "../components/RecentPublications.astro";
   background-color: #262626;
 }
 
-/* heroセクションのz-indexを明示的に設定 */
-#hero {
+/* bopセクションのz-indexを明示的に設定 */
+#bop {
   position: relative;
   z-index: 2;
 }
@@ -280,7 +282,7 @@ import RecentPublications from "../components/RecentPublications.astro";
       duration: 1,
       delay: 0.5
     })
-    .from('#hero', {
+    .from('#bop', {
       opacity: 0,
       y: 50,
       duration: 1

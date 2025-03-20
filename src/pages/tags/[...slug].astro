@@ -9,13 +9,13 @@ import TagLink from '../../components/TagLink.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
-    const tags = posts.flatMap((post) => post.data.tags);
-    return tags.map((tag) => ({
+    const tags = posts.flatMap((post: CollectionEntry<'blog'>) => post.data.tags);
+    return tags.map((tag: string) => ({
         params: { slug: tag },
-        props: { tag, posts: posts.filter((post) => post.data?.tags?.includes(tag as string)) },
+        props: { tag, posts: posts.filter((post: CollectionEntry<'blog'>) => post.data?.tags?.includes(tag)) },
     }));
 }
-const {tag, posts} = Astro.props;
+const {tag, posts}: { tag: string; posts: CollectionEntry<'blog'>[] } = Astro.props;
 type Post = CollectionEntry<'blog'>;
 ---
 

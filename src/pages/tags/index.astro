@@ -11,9 +11,17 @@ const posts = (await getCollection("blog")).sort(
 );
 const tags = posts
   .flatMap((post: CollectionEntry<"blog">) => post.data.tags || [])
-  .filter((tag, index, self) => 
+  .filter((tag: undefined, index: any, self: string | any[]) => 
     tag !== undefined && self.indexOf(tag) === index
   ) as string[];
+
+// タグごとの投稿数を計算
+const tagCounts = posts.reduce((acc: { [x: string]: any; }, post: { data: { tags: any[]; }; }) => {
+  post.data.tags?.forEach((tag: string | number) => {
+    acc[tag] = (acc[tag] || 0) + 1;
+  });
+  return acc;
+}, {} as Record<string, number>);
 ---
 
 <!doctype html>
@@ -32,27 +40,53 @@ const tags = posts
   </head>
   <body class="w-full flex flex-col mx-auto min-h-dvh justify-between dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300">
     <Header />
-    <main
-      class="w-full my-auto lg:mt-28 mt-20 max-w-screen-md mx-auto flex flex-col gap-4 justify-center px-4"
-    >
+    <main class="w-full my-auto lg:mt-28 mt-20 max-w-screen-md mx-auto flex flex-col gap-8 justify-center px-4">
+      <div class="text-center mb-8">
+        <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-4">タグ一覧</h1>
+        <p class="text-gray-600 dark:text-gray-400">記事のカテゴリーごとに閲覧できます</p>
+      </div>
 
-        <ul class="flex flex-wrap gap-2">
-            {tags.map(tag => (
-                <li>
-                    <a href={`/tags/${tag}`} class=" p-1 rounded-md">
-                        #{tag}
-                    </a>
-                </li>
-            ))}
-        </ul>
-     
+      <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {tags.map(tag => (
+          <li class="tag-item">
+            <a href={`/tags/${tag}`} 
+               class="group block p-4 rounded-xl bg-white dark:bg-neutral-900 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-neutral-700">
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-medium">#{tag}</span>
+                <span class="bg-primary/10 text-primary px-2 py-1 rounded-full text-sm">
+                  {tagCounts[tag]}
+                </span>
+              </div>
+              <div class="mt-2 h-1 w-0 group-hover:w-full bg-primary/30 transition-all duration-300"></div>
+            </a>
+          </li>
+        ))}
+      </ul>
     </main>
     <Footer />
   </body>
 </html>
 
 <style>
-  ul {
-    list-style: none;
+  .tag-item {
+    transform: translateY(0);
+    transition: transform 0.2s ease;
+  }
+  .tag-item:hover {
+    transform: translateY(-2px);
   }
 </style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  window.addEventListener('load', () => {
+    gsap.from('.tag-item', {
+      y: 30,
+      opacity: 0,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: 'power2.out'
+    });
+  });
+</script>

@@ -6,6 +6,7 @@
 html {
     font-family: 'Noto Sans JP', 'Reddit Mono', monospace;
     width: 100%;
+    scroll-behavior: smooth;
 }
 
 a {
