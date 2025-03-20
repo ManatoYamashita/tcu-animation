@@ -49,26 +49,28 @@ import logoImg from '/public/logo.webp';
 <script>
 import { gsap } from 'gsap';
 
-gsap.from('.logo', {
-	duration: 1,
-	y: 100,
-	ease: 'power2.out',
-	delay: 2,
-});
+// ページ読み込み完了後にアニメーションを開始
+window.addEventListener('load', () => {
+  gsap.from('.logo', {
+    duration: 1,
+    y: 100,
+    ease: 'power2.out',
+    delay: 0.5
+  });
 
-gsap.fromTo('.menu-item',{ 
-		opacity: 0,
-		y: 50 
-	},
-	{
-		opacity: 1,
-		y: 0,
-		duration: 0.6,
-		stagger: 0.3,
-		ease: "power2.out",
-		delay: 2.5
-	}
-);
+  gsap.fromTo('.menu-item',{ 
+    opacity: 0,
+    y: 50 
+  },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    stagger: 0.3,
+    ease: "power2.out",
+    delay: 1
+  });
+});
 
 // スクロールに応じてヘッダーの背景色を変更
 window.addEventListener('scroll', () => {
