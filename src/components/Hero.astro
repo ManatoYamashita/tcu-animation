@@ -1,0 +1,82 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<section class="bg-white dark:bg-gray-900 overflow-hidden opacity-0" id="hero-section">
+    <div class="container px-6 py-16 mt-16 mx-auto text-center relative">
+        <div class="max-w-lg mx-auto relative z-10">
+            <span class="text-primary text-sm font-bold tracking-wider uppercase mb-4 block">Tokyo City University</span>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white lg:text-6xl font-dela">才能の集大成</h1>
+            <p class="mt-6 text-gray-500 dark:text-gray-300 text-lg">
+                作画から、音楽、VFXまで作る。
+                <br />東京都市大学の学生有志35人によるアニメ制作集団です。
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                <button class="hero-btn px-8 py-3 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary/80 transform hover:scale-105 shadow-lg shadow-primary/30">
+                    <a href="#bop">View Our Work</a>
+                </button>
+                <button class="hero-btn px-8 py-3 text-sm font-medium text-primary border-2 border-primary rounded-lg hover:bg-primary/10 transform hover:scale-105">
+                    <a href="/about">What we are?</a>
+                </button>
+            </div>
+            <p class="mt-6 text-sm text-gray-400">都市大アニメーション 公式サイト</p>
+        </div>
+
+        <div class="flex justify-center mt-12">
+            <div class="relative w-full lg:w-[800px]">
+                <div class="absolute -inset-1 bg-gradient-to-r from-primary/30 to-purple-500/30 rounded-xl blur-xl"></div>
+                <video
+                    class="relative w-full aspect-video rounded-xl shadow-2xl transform hover:scale-[1.02]"
+                    src="/tcuA-video.webm"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                />
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // 初期状態を設定
+  gsap.set('#hero-section', {
+    opacity: 0
+  });
+
+  window.addEventListener('load', () => {
+    const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+
+    // セクション全体を表示
+    tl.to('#hero-section', {
+      opacity: 1,
+      duration: 0.1
+    })
+    .fromTo('#hero-section span', 
+      { y: -20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8 }
+    )
+    .fromTo('#hero-section h1',
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 },
+      '-=0.3'
+    )
+    .fromTo('#hero-section p',
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, stagger: 0.2 },
+      '-=0.5'
+    )
+    .fromTo('#hero-section .hero-btn',
+      { x: -30, opacity: 0 },
+      { x: 0, opacity: 1, duration: 0.8, stagger: 0.2 },
+      '-=0.5'
+    )
+    .fromTo('#hero-section img',
+      { scale: 0.8, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 1.2, ease: 'power2.out' },
+      '-=0.8'
+    );
+  });
+</script>
