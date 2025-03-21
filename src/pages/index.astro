@@ -36,7 +36,7 @@ import RecentPublications from "../components/RecentPublications.astro";
       <!-- 新作アニメ（新BOPへようこそ！）セクション -->
       <section id="bop" class="relative dark:bg-gray-800 bg-white min-h-screen h-full overflow-hidden z-20">
         <div class="bg-white dark:bg-gray-800 flex relative items-center overflow-hidden">
-          <div class="container mx-auto px-6 flex flex-col-reverse sm:flex-row justify-evenly relative sm:py-16 gap-8">
+          <div class="container mx-auto px-6 flex flex-col sm:flex-row justify-evenly relative sm:py-16 gap-8">
             <div class="sm:w-1/2 flex flex-col relative z-20">
               <span class="w-20 h-2 bg-gray-800 dark:bg-white mb-12">
               </span>
@@ -276,17 +276,13 @@ import RecentPublications from "../components/RecentPublications.astro";
     // メインコンテンツのアニメーション
     const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
-    tl.from('header', {
-      y: -100,
+    // headerのアニメーションを削除（Header.astroで定義済み）
+    tl.from('#bop', {
       opacity: 0,
+      y: 50,
       duration: 1,
       delay: 0.5
     })
-    .from('#bop', {
-      opacity: 0,
-      y: 50,
-      duration: 1
-    }, '-=0.5')
     .from('.main-content', {
       opacity: 0,
       y: 30,

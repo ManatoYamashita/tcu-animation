@@ -15,106 +15,140 @@ import logoImg from '/public/logo.webp';
 
 ---
 
-<header class="fixed top-0 z-10 w-full lg:flex pt-4 px-4 px-6 md:pt-10 md:pb-5 gap-5 transition-all">
-  <Astronav>
-    <div class="flex w-full justify-between items-end border-b lg:border-none pb-4 lg:pb-0 relative overflow-hidden">
-    	<a class="logo-wrapper font-semibold text-xl flex gap-2 items-center group" href="/">
-			<Image
-				src={logoImg}
-				alt="都市大アニメーション"
-				class="logo absolute"
-				width={400}
-				height={100}
-				widths={[320, 640, 960, 1020]}
-				sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 1200px"
-				loading="lazy"
-			/>
-		</a>
-      <div class="lg:hidden flex items-center justify-center gap-4">
-        <MenuIcon class="w-4 h-4 text-gray-800 dark:text-neutral-300" />
-		<ThemeIcon class="w-10" />
+<header class="fixed top-0 z-50 w-full">
+  <nav class="mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <Astronav>
+      <div class="relative flex items-center justify-between">
+        <!-- Logo -->
+        <a href="/" class="logo-wrapper group relative z-10">
+          <Image
+            src={logoImg}
+            alt="都市大アニメーション"
+            class="logo w-auto h-8 sm:h-10 transition-transform duration-300 dark:invert"
+            width={400}
+            height={100}
+            loading="eager"
+          />
+        </a>
+
+        <!-- Mobile menu button -->
+        <div class="flex items-center gap-4 lg:hidden">
+          <MenuIcon class="w-6 h-6 text-gray-700 dark:text-neutral-200 hover:text-primary transition-colors" />
+          <ThemeIcon class="w-10" />
+        </div>
+
+        <!-- Desktop menu -->
+        <div class="hidden lg:flex items-center space-x-8">
+          <a href="/about" class="nav-link">About</a>
+          <a href="/blog" class="nav-link">Blog</a>
+          <a href="/tags" class="nav-link">Tags</a>
+          <ThemeIcon class="w-10" />
+        </div>
       </div>
-    </div>
-    <MenuItems class="hidden lg:flex">
-		<ul class="flex flex-col lg:flex-row lg:gap-5 gap-3 mt-3 lg:mt-0 lg:pb-0 border-b border-neutral-400 lg:border-b-0">
-			<li class="menu-item flex items-center"><a href="/about">About</a></li>
-			<li class="menu-item flex items-center"><a href="/blog">Blog</a></li>
-			<li class="menu-item flex items-center"><a href="/tags">Tags</a></li>
-			<li><ThemeIcon class="menu-item w-10 hidden lg:flex" /></li>
-		</ul>
-    </MenuItems>
-  </Astronav>
+
+      <!-- Mobile menu panel -->
+      <div class="lg:hidden">
+        <MenuItems class="absolute top-full left-0 right-0 mt-2 hidden">
+          <div class="bg-white/95 dark:bg-neutral-900/95 backdrop-blur-lg shadow-lg rounded-lg mx-4 overflow-hidden">
+            <nav class="flex flex-col py-4">
+              <a href="/about" class="nav-link mobile-link">About</a>
+              <a href="/blog" class="nav-link mobile-link">Blog</a>
+              <a href="/tags" class="nav-link mobile-link">Tags</a>
+            </nav>
+          </div>
+        </MenuItems>
+      </div>
+    </Astronav>
+  </nav>
 </header>
 
-<script>
-import { gsap } from 'gsap';
-
-// ページ読み込み完了後にアニメーションを開始
-window.addEventListener('load', () => {
-  gsap.from('.logo', {
-    duration: 1,
-    y: 100,
-    ease: 'power2.out',
-    delay: 0.5
-  });
-
-  gsap.fromTo('.menu-item',{ 
-    opacity: 0,
-    y: 50 
-  },
-  {
-    opacity: 1,
-    y: 0,
-    duration: 0.6,
-    stagger: 0.3,
-    ease: "power2.out",
-    delay: 1
-  });
-});
-
-// スクロールに応じてヘッダーの背景色を変更
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  if (window.scrollY > window.innerHeight * 0.5) {
-    header?.classList.add('scrolled');
-  } else {
-    header?.classList.remove('scrolled');
-  }
-});
-</script>
-
 <style>
-header {
-	background-color: transparent;
-	transition: background-color 0.3s ease;
-}
+  header {
+    @apply bg-white/95 dark:bg-neutral-900/95 backdrop-blur-lg;
+    transition: all 0.3s ease;
+  }
 
-header.scrolled {
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-}
+  header.scrolled {
+    @apply bg-white/80 dark:bg-neutral-900/80 backdrop-blur-lg shadow-lg;
+  }
 
-.logo-wrapper {
-	width: 250px;
-	height: 33px;
-}
+  .nav-link {
+    @apply text-gray-700 dark:text-neutral-200 hover:text-primary dark:hover:text-primary 
+           font-medium transition-colors duration-200 relative;
+  }
 
-.logo {
-	width: 25ch;
-}
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary 
+           transition-all duration-300 ease-out;
+  }
 
-.logo-wrapper:hover {
-	transform-origin: center;
-	transform: scale(1.05);
-}
+  .nav-link:hover::after {
+    @apply w-full;
+  }
 
-@media screen and (max-width: 768px) {
-	.logo-wrapper {
-		width: 250px;
-		height: 33px;
-	}
-	.logo {
-		width: 15ch;
-	}
-}
+  .logo-wrapper {
+    @apply transition-transform duration-300;
+  }
+
+  .logo-wrapper:hover {
+    @apply transform scale-105;
+  }
+
+  @media (max-width: 768px) {
+    .logo {
+      @apply h-6;
+    }
+  }
+
+  .mobile-link {
+    @apply block px-6 py-3 hover:bg-gray-50 dark:hover:bg-neutral-800;
+  }
+
+  /* MenuItemsのトランジション用スタイル */
+  :global(.astronav-toggle) {
+    @apply transition-all duration-200;
+  }
+
+  :global(.astronav-toggle[aria-expanded="true"]) {
+    @apply text-primary;
+  }
 </style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // 初期アニメーション
+  window.addEventListener('DOMContentLoaded', () => {
+    // モバイルメニューを初期状態で閉じる
+    const menuToggle = document.querySelector('.astronav-toggle');
+    const menuItems = document.querySelector('[data-astronav-menu]') as HTMLElement;
+    
+    if (menuToggle && menuItems) {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuItems.setAttribute('data-expanded', 'false');
+      menuItems.style.display = 'none';
+    }
+
+    // 初期状態を設定
+    gsap.set(['.logo', '.nav-link'], {
+      opacity: 0,
+      y: -20
+    });
+
+    // アニメーションの実行
+    const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+    
+    tl.to('.logo', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6
+    })
+    .to('.nav-link', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      stagger: 0.1
+    }, '-=0.3');
+  });
+</script>

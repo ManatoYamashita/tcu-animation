@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 ---
 
-<section class="bg-white dark:bg-gray-900 overflow-hidden" id="hero-section">
+<section class="bg-white dark:bg-gray-900 overflow-hidden opacity-0" id="hero-section">
     <div class="container px-6 py-16 mt-16 mx-auto text-center relative">
         <div class="max-w-lg mx-auto relative z-10">
             <span class="text-primary text-sm font-bold tracking-wider uppercase mb-4 block">Tokyo City University</span>
@@ -23,12 +23,15 @@ import { Image } from 'astro:assets';
         </div>
 
         <div class="flex justify-center mt-12">
-            <div class="relative">
+            <div class="relative w-full lg:w-[800px]">
                 <div class="absolute -inset-1 bg-gradient-to-r from-primary/30 to-purple-500/30 rounded-xl blur-xl"></div>
-                <img 
-                    class="relative object-cover w-full h-96 rounded-xl lg:w-4/5 shadow-2xl transform hover:scale-[1.02]" 
-                    src="/public/tcuA.webp"
-                    alt="Hero image"
+                <video
+                    class="relative w-full aspect-video rounded-xl shadow-2xl transform hover:scale-[1.02]"
+                    src="/tcuA-video.webm"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
                 />
             </div>
         </div>
@@ -38,12 +41,22 @@ import { Image } from 'astro:assets';
 <script>
   import { gsap } from 'gsap';
 
+  // 初期状態を設定
+  gsap.set('#hero-section', {
+    opacity: 0
+  });
+
   window.addEventListener('load', () => {
     const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-    tl.fromTo('#hero-section span', 
+    // セクション全体を表示
+    tl.to('#hero-section', {
+      opacity: 1,
+      duration: 0.1
+    })
+    .fromTo('#hero-section span', 
       { y: -20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, delay: 0.5 }
+      { y: 0, opacity: 1, duration: 0.8 }
     )
     .fromTo('#hero-section h1',
       { y: 40, opacity: 0 },
