@@ -1,0 +1,46 @@
+---
+import YouTubeEmbed from './YouTubeEmbed.astro';
+---
+
+<section id="bop" class="relative dark:bg-gray-800 bg-white min-h-screen h-full overflow-hidden z-20">
+  <div class="bg-white dark:bg-gray-800 flex relative items-center overflow-hidden">
+    <div class="container mx-auto px-6 max-w-7xl flex flex-col sm:flex-row justify-evenly relative sm:py-16 gap-8">
+      <div class="sm:w-1/2 flex flex-col relative z-20 max-w-xl">
+        <span class="w-20 h-2 bg-gray-800 dark:bg-white mb-12"></span>
+        <h1 class="my-4 font-bebas-neue uppercase text-3xl sm:text-4xl font-black flex flex-col leading-none dark:text-white text-gray-800">
+          <span class="text-lg sm:text-xl">世田谷区共同 オリジナルアニメ完成！！</span>
+          「新BOPへようこそ！」
+        </h1>
+        <div class="prose dark:prose-invert">
+          <p class="text-sm sm:text-base text-gray-700 dark:text-white">
+            企画・製作: 世田谷区  <br>
+            アニメーション制作: 都市大アニメーション <br>
+            制作協力: 81プロデュース <br>
+            総監督・学生代表: 山下マナト <br>
+            主演: 伊東健人、上田麗奈 <br>
+          </p>
+          <hr class="my-8">
+          <p class="text-sm sm:text-base text-gray-700 dark:text-white">
+            世田谷区主導の元、一年をかけてアニメ作品がついに完成！世田谷区公式YouTubeチャンネルにて2025年3月14日から配信中！
+          </p>
+        </div>
+        <div class="flex mt-8">
+          <a href="https://youtu.be/zLuemAdQlMs?si=2kR9yVbVEfumg6gK" 
+            class="uppercase py-2 px-4 rounded-lg border-2 border-transparent text-white text-md mr-4 bg-primary hover:opacity-80">
+            本編
+            <small>(世田谷区公式YouTube)</small>
+          </a>
+          <a href="#" 
+            class="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white text-md transition-colors duration-300">
+            予告編
+            <small>(世田谷区公式YouTube Shorts)</small>
+          </a>
+        </div>
+      </div>
+      
+      <div class="sm:w-1/2 relative flex justify-center max-w-lg">
+        <YouTubeEmbed />
+      </div>
+    </div>
+  </div>
+</section> 

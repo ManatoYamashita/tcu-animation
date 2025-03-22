@@ -30,7 +30,7 @@ const { title, description, pubDate, heroImage, tags } = Astro.props;
   <body class="w-full mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300">
     <Header />
     <main class="mt-36">
-      <article class="px-4">
+      <article class="px-4 max-w-3xl mx-auto">
         <div class="flex justify-between mb-6">
           <FormattedDate date={pubDate} />
           <p class="text-gray-500 dark:text-neutral-400 text-xs font-medium tracking-wide">
@@ -63,7 +63,7 @@ const { title, description, pubDate, heroImage, tags } = Astro.props;
           {
             tags && (
                 <ul class="tag-ul flex gap-2">
-                  {tags.map((tag) => (
+                  {tags.map((tag: string) => (
                     <li>
                       <TagLink tag={tag} />
                     </li>

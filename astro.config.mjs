@@ -7,7 +7,7 @@ import partytown from '@astrojs/partytown';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://tcu-animation.manapuraza.com',
+    site: 'https://tcu-animation.jp',
     integrations: [mdx(), sitemap({
       filter: (page) => page.path !== '/404',
     }),

@@ -5,10 +5,11 @@ import Hero from "../components/Hero.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import RecentPublications from "../components/RecentPublications.astro";
+import BopSection from "../components/BopSection.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -29,82 +30,16 @@ import RecentPublications from "../components/RecentPublications.astro";
     <section class="fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-800">
       <Header />
     </section>
-    
-    <!-- メインコンテンツ（ヘッダーの高さ分のパディングを追加） -->
-    <!-- <div class="pt-6"></div> -->
-      <Hero />
-      <!-- 新作アニメ（新BOPへようこそ！）セクション -->
-      <section id="bop" class="relative dark:bg-gray-800 bg-white min-h-screen h-full overflow-hidden z-20">
-        <div class="bg-white dark:bg-gray-800 flex relative items-center overflow-hidden">
-          <div class="container mx-auto px-6 flex flex-col sm:flex-row justify-evenly relative sm:py-16 gap-8">
-            <div class="sm:w-1/2 flex flex-col relative z-20">
-              <span class="w-20 h-2 bg-gray-800 dark:bg-white mb-12">
-              </span>
-              <h1 class="my-4 font-bebas-neue uppercase text-3xl sm:text-4xl font-black flex flex-col leading-none dark:text-white text-gray-800">
-                <span class="text-lg sm:text-xl">
-                  世田谷区共同 オリジナルアニメ完成！！
-                </span>
-                「新BOPへようこそ！」
-              </h1>
-              <p class="text-sm sm:text-base text-gray-700 dark:text-white">
-                  企画・製作: 世田谷区  <br>
-                  アニメーション制作: 都市大アニメーション <br>
-                  制作協力: 81プロデュース <br>
-                  総監督・学生代表: 山下マナト <br>
-                  主演: 伊東健人、上田麗奈 <br>
-              </p>
-              <hr class="my-8">
-              <p class="text-sm sm:text-base text-gray-700 dark:text-white">
-                世田谷区主導の元、一年をかけてアニメ作品がついに完成！世田谷区公式YouTubeチャンネルにて2025年3月14日から配信中！
-              </p>
-              <div class="flex mt-8">
-                <a href="https://youtu.be/zLuemAdQlMs?si=2kR9yVbVEfumg6gK" 
-                  class="uppercase py-2 px-4 rounded-lg border-2 border-transparent text-white text-md mr-4" 
-                  style="background-color: var(--color-primary); &:hover { opacity: 0.8; }">
-                  本編
-                  <small>(世田谷区公式YouTube)</small>
-                </a>
-                <a href="#" 
-                  class="uppercase py-2 px-4 rounded-lg bg-transparent border-2 text-md hover:text-white transition-colors duration-300" 
-                  style="border-color: var(--color-primary); color: var(--color-primary); &:hover { background-color: var(--color-primary); }">
-                  予告編
-                  <small>(世田谷区公式YouTube Shorts)</small>
-                </a>
-              </div>
-            </div>
-            <div class="sm:w-1/2 relative flex justify-center">
-              <div class="video-container bg-white dark:bg-gray-800">
-                <!-- デスクトップ用動画（縦長） -->
-                <iframe 
-                  class="hidden sm:block w-[375px] h-[667px] sm:scale-90"
-                  src="https://www.youtube.com/embed/hdK1_B_Mef8?autoplay=1&mute=1&playsinline=1&loop=1" 
-                  title="新BOPへようこそ！" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen>
-                </iframe>
-                <!-- モバイル用動画（横長） -->
-                <iframe 
-                  class="block sm:hidden w-full aspect-video"
-                  src="https://www.youtube.com/embed/G69H1ePQNE8?autoplay=1&mute=1&playsinline=1&loop=1" 
-                  title="【予告】新BOPへようこそ！" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen>
-                </iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
+    <Hero />
+
+    <BopSection />
 
     <main class="main-content">
       <div class="px-4 md:px-16 flex flex-col gap-4 md:my-10">
         <div class="wrapper">
           <p class="paragraph w-full text-justify text-base md:text-lg">
-            東京都市大学アニメーションスタジオ（都市大アニメーション）とは現役都市大生の有志（30名ほど）で構成されるアニメーション制作集団です。
+            東京都市大学アニメーションスタジオ（都市大アニメーション）とは現役都市大生の有志（35名）で構成されるアニメーション制作集団です。
             アニメ化で命を吹き込むことによって、夢に翼を授けます。
             2024年10月現在、世田谷区や81プロデュースと作品制作を行なっています。
           </p>
@@ -236,13 +171,14 @@ import RecentPublications from "../components/RecentPublications.astro";
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "都市大アニメーション",
-  "alternateName": ["東京都市大学アニメーションスタジオ", "TCU Animation Studio", "Tokyo City University Animation Studio", "都市大アニメ"],
+  "alternateName": ["東京都市大学アニメーションスタジオ", "TCU Animation Studio", "Tokyo City University Animation Studio", "都市大アニメ", "tcuA"],
   "site_name": "都市大アニメーション",
-  "url": "https://tcu-acnimation.manapuraza.com",
-  "logo": "https://tcu-acnimation.manapuraza.com/logo.webp",
+  "url": "https://tcu-acnimation.jp",
+  "logo": "https://tcu-acnimation.jp/logo.webp",
   "sameAs": [
-    "https://instagram.com/manapuraza_com",
-    "https://manapuraza.com"
+    "https://instagram.com/manapuraza",
+    "https://manapuraza.com",
+    "https://tcu-acnimation.manapuraza.com"
   ],
   "contactPoint": {
     "@type": "ContactPoint",

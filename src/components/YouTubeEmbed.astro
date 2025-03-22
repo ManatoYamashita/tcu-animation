@@ -1,0 +1,50 @@
+<div class="video-container bg-white dark:bg-gray-800">
+  <!-- デスクトップ用動画（縦長） -->
+  <iframe 
+    class="hidden sm:block w-[375px] h-[667px] sm:scale-90"
+    src="https://www.youtube.com/embed/hdK1_B_Mef8?autoplay=1&mute=1&playsinline=1&loop=1" 
+    title="新BOPへようこそ！" 
+    loading="lazy"
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+  <!-- モバイル用動画（横長） -->
+  <iframe 
+    class="block sm:hidden w-full aspect-video"
+    src="https://www.youtube.com/embed/G69H1ePQNE8?autoplay=1&mute=1&playsinline=1&loop=1" 
+    title="【予告】新BOPへようこそ！" 
+    loading="lazy"
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<style>
+.video-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .video-container {
+    aspect-ratio: 16/9;
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 641px) {
+  .video-container {
+    aspect-ratio: 9/16;
+    max-width: 375px;
+  }
+}
+</style> 
