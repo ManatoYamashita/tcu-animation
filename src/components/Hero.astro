@@ -41,42 +41,28 @@ import { Image } from 'astro:assets';
 <script>
   import { gsap } from 'gsap';
 
-  // 初期状態を設定
+  // 初期状態を設定（opacity: 1に変更）
   gsap.set('#hero-section', {
-    opacity: 0
+    opacity: 1
   });
 
-  window.addEventListener('load', () => {
+  // requestAnimationFrameを使用して最適化
+  requestAnimationFrame(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-    // セクション全体を表示
-    tl.to('#hero-section', {
-      opacity: 1,
-      duration: 0.1
-    })
-    .fromTo('#hero-section span', 
+    tl.fromTo('#hero-section span', 
       { y: -20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8 }
+      { y: 0, opacity: 1, duration: 0.6 }
     )
     .fromTo('#hero-section h1',
       { y: 40, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 },
+      { y: 0, opacity: 1, duration: 0.8 },
       '-=0.3'
     )
-    .fromTo('#hero-section p',
+    .fromTo('#hero-section p, #hero-section .hero-btn',
       { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, stagger: 0.2 },
-      '-=0.5'
-    )
-    .fromTo('#hero-section .hero-btn',
-      { x: -30, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.8, stagger: 0.2 },
-      '-=0.5'
-    )
-    .fromTo('#hero-section img',
-      { scale: 0.8, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1.2, ease: 'power2.out' },
-      '-=0.8'
+      { y: 0, opacity: 1, duration: 0.6, stagger: 0.1 },
+      '-=0.4'
     );
   });
 </script>

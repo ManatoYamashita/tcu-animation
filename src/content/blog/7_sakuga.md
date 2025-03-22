@@ -63,7 +63,7 @@ tags: ['制作', 'blog', '作画', '原画', '動画']
 
 たまに、対面で作業回も行いつつ、合宿という名目で、江ノ島で民家を借りて、作画作業も行いました！
 
-[缶詰作画合宿についてはこちら](https://tcu-animation.manapuraza.com/blog/5_gasshuku)
+[缶詰作画合宿についてはこちら](https://tcu-animation.jp/blog/5_gasshuku)
 
 ## 様々な問題
 
