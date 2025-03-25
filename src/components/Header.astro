@@ -24,7 +24,7 @@ import logoImg from '/public/logo.webp';
           <Image
             src={logoImg}
             alt="都市大アニメーション"
-            class="logo w-auto h-8 sm:h-10 transition-transform duration-300 dark:invert"
+            class="logo w-auto h-8 sm:h-10 transition-transform duration-300"
             width={400}
             height={100}
             loading="eager"
@@ -62,7 +62,7 @@ import logoImg from '/public/logo.webp';
   </nav>
 </header>
 
-<style>
+<style scoped>
   header {
     @apply bg-white/95 dark:bg-neutral-900/95 backdrop-blur-lg;
     /* transition: all 0.3s ease; */
@@ -95,11 +95,11 @@ import logoImg from '/public/logo.webp';
     @apply transform scale-105;
   }
 
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     .logo {
       @apply h-6;
     }
-  }
+  } */
 
   .mobile-link {
     @apply block px-6 py-3 hover:bg-gray-50 dark:hover:bg-neutral-800;

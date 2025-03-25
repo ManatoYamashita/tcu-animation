@@ -37,6 +37,7 @@ hr {
     height: auto;
     border-radius: 0.5rem;
     margin: 1rem auto;
+    padding-bottom: 2rem;
 }
 
 @keyframes hrIn {
@@ -47,9 +48,3 @@ hr {
         transform: scaleX(1);
     }
 }
-
-/* @media screen and (min-width: 768px) {
-    .blog-image {
-        max-width: 50%;
-    }
-} */
