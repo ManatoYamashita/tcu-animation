@@ -31,13 +31,33 @@ hr {
     animation: hrIn 2s forwards;
 }
 
-.blog-image {
+#blog img {
     max-width: 75vw;
     max-height: 70vh;
     height: auto;
     border-radius: 0.5rem;
     margin: 1rem auto;
     padding-bottom: 2rem;
+}
+
+#blog .hero-img {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem auto;
+    padding-bottom: 2rem;
+    max-height: 100%;
+}
+
+#blog figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+#blog figcaption {
+    font-size: 0.8rem;
+    color: #767676;
 }
 
 @keyframes hrIn {

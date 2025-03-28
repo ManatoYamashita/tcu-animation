@@ -20,27 +20,27 @@ let recentPosts: CollectionEntry<"blog">[] = sortedPosts.slice(0, numberOfPostsT
   <h2 class="recent-pub text-2xl font-bold mb-5">Recent Publications</h2>
   {
     recentPosts.map((post) => (
-      <div class="posts flex gap-2 justify-between border-b pb-4">
+      <div class="posts flex flex-col sm:flex-row gap-4 sm:gap-2 sm:justify-between border-b pb-4">
         <div class="flex flex-col gap-4">
           {/* <p>{post.data.pubDate}</p> */}
           <FormattedDate date={post.data.pubDate} />
           <a class="font-bold text-lg" href={`/blog/${post.slug}`}>
             {post.data.title}
           </a>
-          <div class="flex gap-2 flex flex-col sm:flex-row">
-              {post.data.tags?.map((i: string) => {
-                return <TagLink tag={i} />;
-              })}
+          <div class="flex gap-2 flex-wrap max-w-xs">
+            {post.data.tags?.map((i: string) => {
+              return <TagLink tag={i} />;
+            })}
           </div>
         </div>
-        <a href={`/blog/${post.slug}`}>
-        <div class="w-40 h-24 border border-gray-200">
-          <img
-            src={post.data.heroImage}
-            alt={post.data.title}
-            class="w-full h-full object-cover"
-          />
-        </div>
+        <a href={`/blog/${post.slug}`} class="w-full sm:w-auto self-center sm:self-auto">
+          <div class="w-full sm:w-[18rem] h-40 border border-gray-200 overflow-hidden">
+            <img
+              src={post.data.heroImage}
+              alt={post.data.title}
+              class="w-full h-full object-cover"
+            />
+          </div>
         </a>
       </div>
     ))
