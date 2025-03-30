@@ -4,17 +4,27 @@
 
 ![tcu-animation](https://github.com/user-attachments/assets/4bf79ae9-3c02-481c-a68c-242a4b80537f)
 
-## Features
+## 主な機能
 
-- **BlogPosts with Astro**
-- **Dark Mode**
-- **Build with TailwindCSS**
-- **Responsive**
-- **Animated by GSAP**
-- **Blog is written with MDX and Markdown**
-- **CI/CD(Github Actions)**
+- **Astroで構築されたブログ機能**
+- **ダークモードの対応**
+- **TailwindCSSによるスタイリング**
+- **レスポンシブデザイン**
+- **GSAPによるアニメーション**
+- **MarkdownとMDXによるブログ記事**
+- **CI/CD (Github Actions)による自動デプロイ**
 
-<!-- <img width="306" alt="screenshot" src="https://github.com/user-attachments/assets/9b9a6336-bf5c-426e-b3e6-b6a5e86b2fa7"> -->
+### 📝 簡単なコンテンツ更新とデプロイ
+
+このサイトの最大の特徴は、**マークダウンファイルを編集するだけで簡単にブログを更新できる点**です。
+
+1. `src/content/blog/`内のマークダウンファイルを編集
+2. GitHubにプッシュするだけで
+3. **Github Actionsが自動的にビルドとデプロイを行います！**
+
+これにより、技術的な知識がなくてもコンテンツの更新が可能です。
+
+### 📱 デザイン
 
 ダークモードやレスポンシブデザインにも対応しています。
 <div style="display: flex; gap: 10px;">
@@ -22,21 +32,21 @@
   <img width="48%" alt="blog-mobile" src="https://github.com/user-attachments/assets/7ac27ca0-5b95-4cac-a1a4-aed07a4cc0ff">
 </div>
 
-## Getting Started
-
-1. Clone the repository:
+## 開発方法
 
 ```bash
-# Clone the repository
+# リポジトリをクローン
 git clone https://github.com/ManatoYamashita/tcu-animation.git
 cd tcu-animation
 
-#  Install dependencies
+# 依存関係のインストール
 npm i
 
-#  Start the development server
+# 開発サーバーの起動
 npm run dev
 ```
+
+## デモ
 
 [welcometonewbop-short](https://youtube.com/shorts/g88WbiJULao?feature=share)
 
