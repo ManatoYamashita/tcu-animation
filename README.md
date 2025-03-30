@@ -16,6 +16,7 @@
 
 <!-- <img width="306" alt="screenshot" src="https://github.com/user-attachments/assets/9b9a6336-bf5c-426e-b3e6-b6a5e86b2fa7"> -->
 
+ダークモードやレスポンシブデザインにも対応しています。
 <div style="display: flex; gap: 10px;">
   <img width="48%" alt="mobile-darkmode" src="https://github.com/user-attachments/assets/694de380-0ecb-4072-92ab-3ca934fa573c">
   <img width="48%" alt="blog-mobile" src="https://github.com/user-attachments/assets/7ac27ca0-5b95-4cac-a1a4-aed07a4cc0ff">
