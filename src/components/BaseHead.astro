@@ -22,7 +22,10 @@ const { title, description, image = '/tcuA.webp' } = Astro.props;
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap&family=Noto+Sans+JP:wght@100..900&display=swap&family=Reddit+Mono:wght@200..900&display=swap&family=Sawarabi+Mincho&display=swap" rel="stylesheet" media="print" /> 
+<link
+  href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+JP:wght@100..900&family=Reddit+Mono:wght@200..900&family=Sawarabi+Mincho&display=swap"
+  rel="stylesheet"
+/> 
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -34,7 +37,7 @@ const { title, description, image = '/tcuA.webp' } = Astro.props;
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={SITE_URL} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:locale" content="ja_JP" />
 <meta property="og:site_name" content="都市大アニメーション" />
@@ -43,7 +46,7 @@ const { title, description, image = '/tcuA.webp' } = Astro.props;
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={SITE_URL} />
+<meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, SITE_URL)} />

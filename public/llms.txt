@@ -1,0 +1,57 @@
+# TCU Animation - プロジェクト情報
+
+## プロジェクト概要
+東京都市大学アニメーションスタジオ（都市大アニメーション）の公式Webサイト。
+Astroで構築されたブログ機能を持つ静的サイトです。
+
+## 主要技術スタック
+- **フレームワーク**: Astro v4.16.5
+- **スタイリング**: TailwindCSS v3.4.3
+- **アニメーション**: GSAP v3.12.7
+- **コンテンツ管理**: Markdown/MDX (Astro Content Collections)
+- **CI/CD**: GitHub Actions
+- **デプロイ**: 静的ホスティング（FTP）
+
+## ディレクトリ構造
+```
+src/
+├── components/       # UIコンポーネント（BaseHead, Header, Footer等）
+├── layouts/          # ページレイアウト（BlogPost等）
+├── pages/            # ルーティング（index, blog, tags等）
+├── content/          # コンテンツ管理
+│   ├── config.ts     # スキーマ定義
+│   └── blog/         # ブログ記事（Markdown）
+├── styles/           # グローバルスタイル
+└── consts.ts         # グローバル定数
+```
+
+## 重要なコンポーネント
+- **BaseHead.astro**: SEOメタタグ、OGP、構造化データの管理
+- **BlogPost.astro**: ブログ記事レイアウトと構造化データ（BlogPosting Schema）
+- **content/config.ts**: ブログ記事のフロントマター定義（Zodスキーマ）
+
+## コンテンツ更新方法
+1. `src/content/blog/` にMarkdownファイルを作成
+2. フロントマターに必要情報を記載（title, description, pubDate, heroImage, tags）
+3. GitHubにプッシュ → GitHub Actionsが自動ビルド・デプロイ
+
+## SEO対策
+- 構造化データ（Organization Schema, BlogPosting Schema）
+- OGP/Twitter Card対応
+- サイトマップ自動生成
+- Canonical URL設定
+- 画像の遅延読み込み（lazy loading）
+- フォント最適化（font-display: swap）
+
+## 開発コマンド
+```bash
+npm run dev      # 開発サーバー起動
+npm run build    # プロダクションビルド（astro check含む）
+npm run preview  # ビルド結果のプレビュー
+```
+
+## 組織情報
+- **名称**: 都市大アニメーション（東京都市大学アニメーションスタジオ）
+- **URL**: https://tcu-animation.jp
+- **代表者**: 山下マナト
+- **設立日**: 2024-02-24

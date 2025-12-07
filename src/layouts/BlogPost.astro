@@ -6,17 +6,60 @@ import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import TagLink from "../components/TagLink.astro";
 import { Image } from 'astro:assets';
+import { SITE_URL } from "../consts";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, heroImage, tags } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
+
+// ブログ記事のURL取得
+const postUrl = new URL(Astro.url.pathname, SITE_URL);
+
+// 画像のフルURLを生成
+const imageUrl = heroImage
+  ? new URL(heroImage, SITE_URL).toString()
+  : new URL('/tcuA.webp', SITE_URL).toString();
+
+// BlogPosting Schema用のデータ準備
+const blogPostingSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "image": imageUrl,
+  "datePublished": pubDate.toISOString(),
+  "dateModified": updatedDate ? updatedDate.toISOString() : pubDate.toISOString(),
+  "author": {
+    "@type": "Organization",
+    "name": "都市大アニメーション",
+    "url": SITE_URL
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "都市大アニメーション",
+    "logo": {
+      "@type": "ImageObject",
+      "url": new URL('/logo.webp', SITE_URL).toString()
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": postUrl.toString()
+  },
+  "keywords": tags ? tags.join(", ") : "",
+  "inLanguage": "ja-JP"
+};
 
 ---
 
 <html lang="ja" class="dark">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} image={heroImage} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- BlogPosting Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-61T79P21HB"></script>
     <script type="text/partytown">
@@ -59,6 +102,14 @@ const { title, description, pubDate, heroImage, tags } = Astro.props;
         <div class="mt-10">
           <slot />
         </div>
+
+        <!-- 更新日表示（存在する場合） -->
+        {updatedDate && pubDate.getTime() !== updatedDate.getTime() && (
+          <p class="text-sm text-gray-500 dark:text-neutral-400 mt-8 border-t pt-4">
+            最終更新: <FormattedDate date={updatedDate} />
+          </p>
+        )}
+
         <div>
           {
             tags && (

@@ -37,8 +37,9 @@ let recentPosts: CollectionEntry<"blog">[] = sortedPosts.slice(0, numberOfPostsT
           <div class="w-full sm:w-[18rem] h-40 border border-gray-200 overflow-hidden">
             <img
               src={post.data.heroImage}
-              alt={post.data.title}
+              alt={`${post.data.title} - 都市大アニメーションのブログ記事サムネイル`}
               class="w-full h-full object-cover"
+              loading="lazy"
             />
           </div>
         </a>
