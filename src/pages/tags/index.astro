@@ -24,14 +24,6 @@ const tagCounts: Record<string, number> = posts.reduce((acc, post) => {
 }, {} as Record<string, number>);
 ---
 
-<style is:global>
-  /* 初期状態で要素を非表示に */
-  .fade-in {
-    opacity: 0;
-    visibility: hidden;
-  }
-</style>
-
 <!doctype html>
 <html lang="ja" class="min-h-dvh">
   <head>
@@ -45,6 +37,13 @@ const tagCounts: Record<string, number> = posts.reduce((acc, post) => {
 
       gtag('config', 'G-61T79P21HB');
     </script>
+    <style is:global>
+      /* 初期状態で要素を非表示に */
+      .fade-in {
+        opacity: 0;
+        visibility: hidden;
+      }
+    </style>
   </head>
   <body class="w-full flex flex-col mx-auto min-h-dvh justify-between dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300">
     <Header />
@@ -72,51 +71,50 @@ const tagCounts: Record<string, number> = posts.reduce((acc, post) => {
       </ul>
     </main>
     <Footer />
+    <script>
+      import { gsap } from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+      gsap.registerPlugin(ScrollTrigger);
+    
+      // ページ読み込み直後にスタイルを適用
+      document.addEventListener('DOMContentLoaded', () => {
+        gsap.set('.fade-in', { 
+          opacity: 0,
+          visibility: 'visible' // visibilityを表示状態に
+        });
+      });
+    
+      // スクロールトリガーのアニメーション
+      window.addEventListener('load', () => {
+        gsap.from('.text-center', {
+          scrollTrigger: {
+            trigger: '.text-center',
+            start: 'top 80%',
+          },
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          onStart: () => {
+            gsap.set('.text-center', { visibility: 'visible' });
+          }
+        });
+    
+        gsap.from('.tag-item', {
+          scrollTrigger: {
+            trigger: '.tag-item',
+            start: 'top 80%',
+          },
+          y: 30,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power2.out',
+          onStart: () => {
+            gsap.set('.tag-item', { visibility: 'visible' });
+          }
+        });
+      });
+    </script>
   </body>
 </html>
-
-<script>
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-  gsap.registerPlugin(ScrollTrigger);
-
-  // ページ読み込み直後にスタイルを適用
-  document.addEventListener('DOMContentLoaded', () => {
-    gsap.set('.fade-in', { 
-      opacity: 0,
-      visibility: 'visible' // visibilityを表示状態に
-    });
-  });
-
-  // スクロールトリガーのアニメーション
-  window.addEventListener('load', () => {
-    gsap.from('.text-center', {
-      scrollTrigger: {
-        trigger: '.text-center',
-        start: 'top 80%',
-      },
-      y: 30,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power2.out',
-      onStart: () => {
-        gsap.set('.text-center', { visibility: 'visible' });
-      }
-    });
-
-    gsap.from('.tag-item', {
-      scrollTrigger: {
-        trigger: '.tag-item',
-        start: 'top 80%',
-      },
-      y: 30,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.1,
-      ease: 'power2.out',
-      onStart: () => {
-        gsap.set('.tag-item', { visibility: 'visible' });
-      }
-    });
-  });
-</script>

@@ -8,8 +8,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 技術スタック
 
-- **フレームワーク**: Astro v4.16.5 (静的サイト生成)
-- **スタイリング**: Tailwind CSS v3.4.3
+- **フレームワーク**: Astro v7 (静的サイト生成、Node.js 22.23.4 以上が必須)
+- **スタイリング**: Tailwind CSS v3（`postcss.config.mjs` 経由。`@astrojs/tailwind` は Astro 6 以降非対応のため不使用）
 - **アニメーション**: GSAP v3.12.7
 - **コンテンツ**: MDX (Markdown + JSX)
 - **型安全性**: TypeScript (strict mode)
@@ -37,7 +37,7 @@ npx astro check
 
 ブログ記事は**Content Collections API**で型安全に管理されている:
 
-- **定義場所**: `src/content/config.ts`
+- **定義場所**: `src/content.config.ts`（Content Layer API・`glob` loader）
 - **記事保存先**: `src/content/blog/*.md`
 - **スキーマ**: Zodで厳密に型定義
   - `title`, `description`, `pubDate` (必須)
