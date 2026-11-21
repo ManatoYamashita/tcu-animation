@@ -1,0 +1,32 @@
+# 本番は Vercel（www.tcu-animation.jp）が main から自動でデプロイする。
+# この CI は PR と main への push で型チェックとビルドが通ることだけを確認する。
+# （以前は FTP でビルド結果をアップロードしていたが、本番とは別のサーバーだったため廃止）
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'  # Astro 7 は Node.js 22.23.4 以上が必須
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check and build
+        run: npm run build  # astro check && astro build
