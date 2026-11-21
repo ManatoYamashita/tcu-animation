@@ -1,3 +1,8 @@
+/* Tailwind CSS（以前は @astrojs/tailwind が自動で注入していた） */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* カラーテーマを定義 */
 :root {
     --color-primary: #E36464;

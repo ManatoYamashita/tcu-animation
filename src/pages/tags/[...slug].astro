@@ -34,7 +34,7 @@ type Post = CollectionEntry<'blog'>;
                 <div class="flex gap-2 justify-between border-b pb-4">
               <div class="flex flex-col gap-4">
                 <FormattedDate date={post.data.pubDate} />
-                <a class="font-bold text-lg" href={`/blog/${post.slug}`}>
+                <a class="font-bold text-lg" href={`/blog/${post.id}`}>
                   {post.data.title}
                 </a>
                 <div class="flex gap-2">
@@ -43,7 +43,7 @@ type Post = CollectionEntry<'blog'>;
                   })}
                 </div>
               </div>
-              <a href={`/blog/${post.slug}`}>
+              <a href={`/blog/${post.id}`}>
                 <img
                   src={post.data.heroImage}
                   alt={`${post.data.title} - 都市大アニメーションのブログ記事サムネイル`}

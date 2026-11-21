@@ -10,23 +10,24 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^3.1.8",
-    "@astrojs/rss": "^4.0.9",
-    "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/tailwind": "^5.1.2",
-    "@astropub/icons": "^0.2.0",
-    "astro": "^4.16.5",
-    "astro-iconify": "^1.2.0",
-    "astro-navbar": "^2.3.2",
+    "@astrojs/check": "^0.9.12",
+    "@astrojs/mdx": "^8.1.6",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.6",
+    "@iconify-json/material-symbols": "^1.2.101",
+    "@iconify-json/radix-icons": "^1.2.6",
+    "astro": "^7.4.13",
+    "astro-icon": "^1.2.0",
+    "astro-navbar": "^2.4.0",
+    "autoprefixer": "^10.7.0",
     "clsx": "^2.1.1",
     "gsap": "^3.12.7",
-    "solid-js": "^1.8.21",
+    "postcss": "^8.5.33",
     "tailwind-merge": "^2.3.0",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "@astrojs/partytown": "^2.1.2"
+    "@astrojs/partytown": "^2.1.9"
   }
 }

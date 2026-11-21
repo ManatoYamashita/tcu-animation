@@ -1,7 +1,10 @@
-import { defineCollection, z } from 'astro:content'
+import { defineCollection } from 'astro:content'
+import { glob } from 'astro/loaders'
+import { z } from 'astro/zod'
 
 const blog = defineCollection({
-    type: 'content',
+    // Astro 5 以降の Content Layer API。記事は従来どおり src/content/blog に置く
+    loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
     // Type-check frontmatter using a schema
     schema: z.object({
         title: z.string(),
