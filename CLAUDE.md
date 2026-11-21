@@ -13,7 +13,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **アニメーション**: GSAP v3.12.7
 - **コンテンツ**: MDX (Markdown + JSX)
 - **型安全性**: TypeScript (strict mode)
-- **CI/CD**: GitHub Actions → FTP自動デプロイ
+- **CI/CD**: Vercel（main から本番へ自動デプロイ）、GitHub Actions（PR と main で型チェック・ビルドのみ）
 
 ## 開発コマンド
 
@@ -90,7 +90,7 @@ SITE_URL         // 本番URL (OGP用)
    tags: ["タグ1", "タグ2"] (任意)
    ---
    ```
-3. `main`ブランチにpushで自動ビルド・デプロイ
+3. `main`ブランチにpushすると Vercel が自動でビルド・デプロイ
 
 ### 画像管理
 
@@ -113,14 +113,13 @@ SITE_URL         // 本番URL (OGP用)
 
 ## CI/CD パイプライン
 
-`.github/workflows/deployment.yml`でmainブランチpush時に自動実行:
+- **デプロイ**: Vercel が `main` から本番（https://www.tcu-animation.jp）へ自動デプロイする。PR ごとに Preview も作られる
+- **CI**: `.github/workflows/ci.yml` が PR と `main` への push で実行（デプロイはしない）
+  1. Node.js 22 セットアップ（Astro 7 は 22.23.4 以上が必須）
+  2. `npm ci`
+  3. `npm run build`（astro check を含む）
 
-1. Node.js 18セットアップ
-2. `npm install`
-3. `npm run build` (astro check含む)
-4. `dist/`をFTPサーバーへデプロイ
-
-**機密情報**: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`はGitHub Secretsで管理。
+以前は GitHub Actions から FTP でアップロードしていたが、本番とは別のサーバーだったため廃止した。
 
 ## サイト設定
 
