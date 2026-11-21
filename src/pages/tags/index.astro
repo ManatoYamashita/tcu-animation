@@ -76,44 +76,39 @@ const tagCounts: Record<string, number> = posts.reduce((acc, post) => {
       import { ScrollTrigger } from 'gsap/ScrollTrigger';
       gsap.registerPlugin(ScrollTrigger);
     
-      // ページ読み込み直後にスタイルを適用
-      document.addEventListener('DOMContentLoaded', () => {
-        gsap.set('.fade-in', { 
-          opacity: 0,
-          visibility: 'visible' // visibilityを表示状態に
-        });
-      });
-    
-      // スクロールトリガーのアニメーション
+      // .fade-in は CSS で opacity: 0 / visibility: hidden にしてある。
+      // autoAlpha（opacity と visibility をまとめて扱う）で終わりの値を明示して表示させる。
+      // 以前は gsap.set で opacity: 0 にした後に gsap.from を使っていたため、
+      // 「0 から 0 へ」のアニメーションになり、ページの中身が一切表示されなかった。
       window.addEventListener('load', () => {
-        gsap.from('.text-center', {
-          scrollTrigger: {
-            trigger: '.text-center',
-            start: 'top 80%',
+        gsap.fromTo('main .text-center.fade-in',
+          { y: 30, autoAlpha: 0 },
+          {
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: 'main .text-center.fade-in',
+              start: 'top 80%',
+            },
           },
-          y: 30,
-          opacity: 0,
-          duration: 0.8,
-          ease: 'power2.out',
-          onStart: () => {
-            gsap.set('.text-center', { visibility: 'visible' });
-          }
-        });
-    
-        gsap.from('.tag-item', {
-          scrollTrigger: {
-            trigger: '.tag-item',
-            start: 'top 80%',
+        );
+
+        gsap.fromTo('.tag-item',
+          { y: 30, autoAlpha: 0 },
+          {
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: '.tag-item',
+              start: 'top 80%',
+            },
           },
-          y: 30,
-          opacity: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: 'power2.out',
-          onStart: () => {
-            gsap.set('.tag-item', { visibility: 'visible' });
-          }
-        });
+        );
       });
     </script>
   </body>
