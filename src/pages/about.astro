@@ -1,5 +1,10 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
+import BlogImage from '../components/BlogImage.astro';
+
+// 本文の画像は BlogPost レイアウトの本文幅（最大 736px）で表示される
+const contentWidths = [320, 480, 640, 736, 960, 1280, 1472];
+const contentSizes = '(min-width: 768px) 736px, calc(100vw - 32px)';
 ---
 
 <Layout
@@ -31,7 +36,7 @@ import Layout from '../layouts/BlogPost.astro';
 		<a href="https://www.city.setagaya.lg.jp/mokuji/kodomo/006/009/d00007374.html" target="_blank">新BOPとは（世田谷区公式サイト）</a>
 		</p>
 
-		<img src="/blog-assets/0_about/about-bop.webp" alt="新BOPとは" class="blog-img">
+		<BlogImage src="/blog-assets/0_about/about-bop.webp" alt="新BOPとは" class="blog-img" widths={contentWidths} sizes={contentSizes} />
 
 		<span class="text-wrap">
 			<h3 class="blog-head">新BOP学童クラブとは</h3>
@@ -50,7 +55,7 @@ import Layout from '../layouts/BlogPost.astro';
 		<span class="text-wrap">
 			<h3 class="blog-head">世田谷区の課題と現状</h3>
 		</span>
-		<img src="/blog-assets/0_about/problem.webp" alt="世田谷区の課題と現状" class="blog-img">
+		<BlogImage src="/blog-assets/0_about/problem.webp" alt="世田谷区の課題と現状" class="blog-img" widths={contentWidths} sizes={contentSizes} />
 		<ul>
 			<li>新BOPの人手不足</li>
 			<li>現在様々な施策で興味を持ってもらおうと動いている</li>
@@ -60,7 +65,7 @@ import Layout from '../layouts/BlogPost.astro';
 			<li>若者向けだからアニメで訴求したい</li>
 		</ul>
 
-		<img src="/blog-assets/0_about/needs.webp" alt="求められているアニメーション" class="blog-img">
+		<BlogImage src="/blog-assets/0_about/needs.webp" alt="求められているアニメーション" class="blog-img" widths={contentWidths} sizes={contentSizes} />
 		<p class="blog-paragraph">
 			<iframe class="setagayafes21-anime" src="https://www.youtube.com/embed/q9Dy7ACB288?si=83kxgWMMvCSAE49E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 			山下マナトが2年生の頃に<a href="https://tmana.sub.jp/tcudcAnimePj2021/src/tcudcAnimePj21.html" target="_blank">デジタルコンテンツ研究会で作ったアニメーションのblog</a>を見ていただいた世田谷区からお話をいただきました。（2024年1月頃）

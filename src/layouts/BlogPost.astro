@@ -5,8 +5,9 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import TagLink from "../components/TagLink.astro";
-import { Image } from 'astro:assets';
+import BlogImage from "../components/BlogImage.astro";
 import { SITE_URL } from "../consts";
+import { resolveBlogImage } from "../utils/blogImages";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -15,9 +16,15 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 // ブログ記事のURL取得
 const postUrl = new URL(Astro.url.pathname, SITE_URL);
 
+// OGP・構造化データ用の画像パス。
+// heroImage が src/assets/blog-assets/ にある場合は public/ に存在しないため、
+// build 時に出力される元画像（/_astro/...）の URL を使う
+const heroAsset = await resolveBlogImage(heroImage);
+const shareImage = heroAsset ? heroAsset.src : heroImage;
+
 // 画像のフルURLを生成
-const imageUrl = heroImage
-  ? new URL(heroImage, SITE_URL).toString()
+const imageUrl = shareImage
+  ? new URL(shareImage, SITE_URL).toString()
   : new URL('/tcuA.webp', SITE_URL).toString();
 
 // BlogPosting Schema用のデータ準備
@@ -54,7 +61,7 @@ const blogPostingSchema = {
 
 <html lang="ja" class="dark">
   <head>
-    <BaseHead title={title} description={description} image={heroImage} />
+    <BaseHead title={title} description={description} image={shareImage} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- BlogPosting Schema -->
@@ -84,17 +91,17 @@ const blogPostingSchema = {
           {title}
         </h1>
         <div>
+          {/* article は max-w-3xl（768px）+ px-4 なので本文幅は最大 736px。
+              以前は width="1020" 属性と max-width: 100% で常に本文幅いっぱいに
+              表示されていたため、元画像が小さい記事でも同じ見た目になるよう w-full を付ける */}
           {
             heroImage && (
-            <Image
-              src={heroImage as unknown as ImageMetadata}
+            <BlogImage
+              src={heroImage}
               alt="東京都市大学 アニメーション"
-              class="hero-img"
-              width={1020}
-              height={510}
-              widths={[320, 640, 960, 1020]}
-              sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 1200px"
-              loading="lazy"
+              class="hero-img w-full"
+              widths={[320, 480, 640, 736, 960, 1280, 1472]}
+              sizes="(min-width: 768px) 736px, calc(100vw - 32px)"
             />
             )
           }

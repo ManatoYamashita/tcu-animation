@@ -1,0 +1,42 @@
+---
+/**
+ * "/blog-assets/..." 形式のパスで指定した画像を、表示サイズに合った幅で出し分けるコンポーネント。
+ *
+ * 以前は heroImage の文字列をそのまま <Image> に渡していたため Astro が画像を処理できず、
+ * srcset の全候補が元画像（最大 1.2MB）になっていた。
+ * 解決できない画像（public/ に置いたままのもの）は従来どおり <img> で表示する。
+ */
+import { Image } from 'astro:assets';
+import { resolveBlogImage } from '../utils/blogImages';
+
+interface Props {
+  /** "/blog-assets/<記事>/<ファイル>" 形式のパス */
+  src: string;
+  alt: string;
+  /** 生成する横幅の候補。元画像より大きい値は Astro が自動で除外する */
+  widths: number[];
+  /** 実際の表示幅に合わせた sizes 属性 */
+  sizes: string;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+}
+
+const { src, alt, widths, sizes, class: className, loading = 'lazy' } = Astro.props;
+
+const image = await resolveBlogImage(src);
+---
+
+{
+  image ? (
+    <Image
+      src={image}
+      alt={alt}
+      widths={widths}
+      sizes={sizes}
+      class={className}
+      loading={loading}
+    />
+  ) : (
+    <img src={src} alt={alt} class={className} loading={loading} decoding="async" />
+  )
+}
