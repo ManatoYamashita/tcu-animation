@@ -86,7 +86,7 @@ SITE_URL         // 本番URL (OGP用)
    title: 記事タイトル
    description: 記事説明
    pubDate: 2024-01-01
-   heroImage: /blog-assets/image.jpg (任意)
+   heroImage: /blog-assets/image.jpg (任意。画像は src/assets/blog-assets/ に置く)
    tags: ["タグ1", "タグ2"] (任意)
    ---
    ```
@@ -96,6 +96,12 @@ SITE_URL         // 本番URL (OGP用)
 
 - **ブログ画像**: `/public/blog-assets/` 配下に記事ごとのサブディレクトリ作成
 - **公開画像パス**: `/blog-assets/...` (publicディレクトリはルートから参照)
+- **サムネイル（heroImage）と About ページの画像**: `src/assets/blog-assets/` に、public と同じサブディレクトリ構成で置く
+  - frontmatter は従来どおり `heroImage: /blog-assets/<記事>/<ファイル>` と書く。`src/utils/blogImages.ts` が同じパスの画像を `src/assets/blog-assets/` から探し、`BlogImage.astro`（`<Image>`）で表示幅に合った webp を build 時に生成する
+  - 一覧（`/blog/`・`/tags/<tag>/`）は 160x96px、トップの Recent Publications は最大 288px、記事のヒーローは最大 736px で表示される。元画像が大きくても、配信されるのはその幅に合った版だけ
+  - `public/` に置いたままでも表示はされるが、最適化されない（元画像がそのまま配信される）
+  - OGP・構造化データの画像は、build 時に出力される元画像（`/_astro/...`）の URL になる
+  - `public/` 全体を `import.meta.glob` すると、使っていない画像まで `dist/_astro/` に複製される（約 59MB 増えた）。対象は `src/assets/blog-assets/` に限っている
 
 ### コーディング規約
 

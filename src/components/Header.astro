@@ -21,12 +21,15 @@ import logoImg from '/public/logo.webp';
       <div class="relative flex items-center justify-between">
         <!-- Logo -->
         <a href="/" class="logo-wrapper group relative z-10">
+          {/* 表示は高さ 32px（sm 以上 40px）の 4:1 なので、最大 160x40 の 1x/2x を出す。
+              縦横比は従来の 400x100 と同じ 4:1 のままにしている */}
           <Image
             src={logoImg}
             alt="都市大アニメーション"
             class="logo w-auto h-8 sm:h-10 transition-transform duration-300"
-            width={400}
-            height={100}
+            width={160}
+            height={40}
+            densities={[1, 2]}
             loading="eager"
           />
         </a>

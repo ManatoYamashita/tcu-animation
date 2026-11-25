@@ -6,7 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection, type CollectionEntry } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import TagLink from "../../components/TagLink.astro";
-import { Image } from 'astro:assets';
+import BlogImage from "../../components/BlogImage.astro";
 
 type Post = CollectionEntry<'blog'>;
 
@@ -62,15 +62,14 @@ posts.forEach((post) => {
                 </div>
                 <a href={`/blog/${post.id}`}>
                   <div class="w-40 h-24 border border-gray-200">
-                    <Image
-                      src={post.data.heroImage || '/public/tcuA.webp'}
+                    {/* 枠は常に 160x96px の object-cover。16:9 の画像は高さ基準で
+                        切り抜かれるため、必要な横幅は 96 * 16 / 9 ≒ 171px になる */}
+                    <BlogImage
+                      src={post.data.heroImage || '/tcuA.webp'}
                       alt={post.data.title}
                       class="w-full h-full object-cover"
-                      width={1020}
-                      height={510}
-                      widths={[320, 640, 960, 1020]}
-                      sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 1200px"
-                      loading="lazy"
+                      widths={[180, 360]}
+                      sizes="180px"
                     />
                   </div>
                 </a>

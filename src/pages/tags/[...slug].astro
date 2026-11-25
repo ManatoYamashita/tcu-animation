@@ -6,6 +6,7 @@ import Footer from '../../components/Footer.astro';
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import TagLink from '../../components/TagLink.astro';
+import BlogImage from '../../components/BlogImage.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -44,11 +45,13 @@ type Post = CollectionEntry<'blog'>;
                 </div>
               </div>
               <a href={`/blog/${post.id}`}>
-                <img
-                  src={post.data.heroImage}
+                {/* /blog/ 一覧と同じ 160x96px の object-cover 枠（必要な横幅は約 171px） */}
+                <BlogImage
+                  src={post.data.heroImage || '/tcuA.webp'}
                   alt={`${post.data.title} - 都市大アニメーションのブログ記事サムネイル`}
                   class="w-40 h-24 object-cover border border-gray-200"
-                  loading="lazy"
+                  widths={[180, 360]}
+                  sizes="180px"
                 />
               </a>
             </div>
